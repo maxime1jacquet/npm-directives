@@ -16,6 +16,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-simple-countdown": [
+        "dist/ngx-simple-countdown"
+      ],
+      "ngx-simple-countdown/*": [
+        "dist/ngx-simple-countdown/*"
+      ]
+    }
   }
 }
