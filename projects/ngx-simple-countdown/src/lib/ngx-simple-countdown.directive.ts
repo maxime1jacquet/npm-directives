@@ -1,4 +1,4 @@
-import { Directive, Input, ElementRef } from '@angular/core';
+import { Directive, Input, ElementRef } from "@angular/core";
 
 interface CountdownResult {
   seconds: number;
@@ -17,15 +17,15 @@ interface CountdownKeywords {
 }
 
 @Directive({
-  selector: '[simpleCountdown]'
+  selector: "[simpleCountdown]"
 })
 export class NgxSimpleCountdownDirective {
   @Input() dateTo: number;
-  @Input() language = 'en';
+  @Input() language = "en";
   @Input() reactive = true;
-  @Input() endMessage = 'countdown finish';
+  @Input() endMessage = "countdown finish";
   @Input() styles =
-    'font-size:20px;color:#FFF;background-color:#000;padding:10px 5px;font-weight:bold';
+    "font-size:20px;color:#FFF;background-color:#000;padding:10px 5px;font-weight:bold";
   public keywords: CountdownKeywords;
   public dateNow: number;
   public countdownResult: CountdownResult;
@@ -39,7 +39,7 @@ export class NgxSimpleCountdownDirective {
   }
 
   private createHTML(secondes: number): void {
-    let o = '';
+    let o = "";
 
     if (secondes > 0) {
       o = '<div style="display:flex;">';
@@ -64,29 +64,31 @@ export class NgxSimpleCountdownDirective {
         }</div>`;
       }
       if (
-        this.countdownResult.minutes > 0 ||
-        this.countdownResult.hours > 0 ||
-        this.countdownResult.day > 0 ||
-        this.countdownResult.years > 0
+        (this.countdownResult.minutes > 0 ||
+          this.countdownResult.hours > 0 ||
+          this.countdownResult.day > 0 ||
+          this.countdownResult.years > 0) &&
+        this.reactive
       ) {
         o += `<div style="${this.styles}">${this.countdownResult.minutes}${
           this.keywords.minutes
         }</div>`;
       }
       if (
-        this.countdownResult.seconds > 0 ||
-        this.countdownResult.minutes > 0 ||
-        this.countdownResult.hours > 0 ||
-        this.countdownResult.day > 0 ||
-        this.countdownResult.years > 0
+        (this.countdownResult.seconds > 0 ||
+          this.countdownResult.minutes > 0 ||
+          this.countdownResult.hours > 0 ||
+          this.countdownResult.day > 0 ||
+          this.countdownResult.years > 0) &&
+        this.reactive
       ) {
         o += `<div style="${this.styles}">${this.countdownResult.seconds}${
           this.keywords.seconds
         }</div>`;
       }
-      o += '</div>';
+      o += "</div>";
     } else {
-      if (this.endMessage !== '') {
+      if (this.endMessage !== "") {
         o += `<div style="${this.styles}">${this.endMessage}</div>`;
       }
     }
@@ -133,21 +135,21 @@ export class NgxSimpleCountdownDirective {
   }
 
   private setLanguage(language: string): void {
-    if (language === 'fr') {
+    if (language === "fr") {
       this.keywords = {
-        seconds: 's',
-        minutes: 'm',
-        hours: 'h',
-        day: 'j',
-        years: 'a'
+        seconds: "s",
+        minutes: "m",
+        hours: "h",
+        day: "j",
+        years: "a"
       };
     } else {
       this.keywords = {
-        seconds: 's',
-        minutes: 'm',
-        hours: 'h',
-        day: 'd',
-        years: 'y'
+        seconds: "s",
+        minutes: "m",
+        hours: "h",
+        day: "d",
+        years: "y"
       };
     }
   }
