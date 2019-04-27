@@ -4,19 +4,20 @@ The most simple way to display a countdown in angular 7
 
 # Getting Started
 
-### Demo
+## Links
 
-```
-https://chti-raidtour.fr/nomadraid
-```
+- [ngx-simple-countdown demo](https://chti-raidtour.fr/nomadraid)
+- [github repository](https://github.com/maxime1jacquet/ngx-simple-countdown)
+- [my twitter](https://twitter.com/maxime1jacquet)
 
-### Install
+## Install
 
 ```
 npm i ngx-simple-countdown
+yarn i ngx-simple-countdown
 ```
 
-### Import in your angular module
+## Import in your angular module (or feature module)
 
 ##### app.module.ts
 
@@ -29,7 +30,7 @@ import { NgxSimpleCountdownModule } from "ngx-simple-countdown";
 export class AppModule {}
 ```
 
-### Add "simpleCountdown" in new div in your component
+## Add "simpleCountdown" in a new div in your component
 
 ##### app.component.html
 
@@ -42,7 +43,7 @@ export class AppModule {}
 -->
 ```
 
-### And you can add some parameters
+## And you can add some parameters
 
 ```html
 <div
@@ -60,18 +61,24 @@ export class AppModule {}
     font-weight: bold;
   '"
 ></div>
-
-<!-- 
-language : default language is en (en / fr)
-endMessage : custom the end message (or empty message)
-reactive=false : remove seconds and minutes
-style : remplace default styles
--->
 ```
+
+## Parameters Docs
+
+| Name parameter | default value                                                                       | custom value                                                                                         |
+| -------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| language       | en                                                                                  | en/English - fr/Francais - pl/Polski - de/Deutschland - es/España - pt/Portugal - cs/Česká republika |
+| endMessage     | "countdown finish"                                                                  | custom the end message (or empty message)                                                            |
+| reactive       | true                                                                                | false (remove seconds and minutes)                                                                   |
+| styles         | "font-size:20px;color:#FFF;background-color:#000;padding:10px 5px;font-weight:bold" | remplace my default                                                                                  |
+
+**if your language is not supported please [contact me](https://twitter.com/maxime1jacquet)**
 
 ### Add styles in your div
 
 ##### app.component.scss
+
+you can add somes styles in your element
 
 ```css
 .countdown {
@@ -83,3 +90,5 @@ style : remplace default styles
 ```
 
 # And that's it, Enjoy !
+
+Please, show me your work : **[contact me](https://twitter.com/maxime1jacquet)**

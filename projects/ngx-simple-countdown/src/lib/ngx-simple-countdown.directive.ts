@@ -143,6 +143,38 @@ export class NgxSimpleCountdownDirective {
         day: "j",
         years: "a"
       };
+    } else if (language === "de") {
+      this.keywords = {
+        seconds: "z",
+        minutes: "m",
+        hours: "s",
+        day: "t",
+        years: "j"
+      };
+    } else if (language === "es" || language === "pt") {
+      this.keywords = {
+        seconds: "s",
+        minutes: "m",
+        hours: "s",
+        day: "d",
+        years: "a"
+      };
+    } else if (language === "cs") {
+      this.keywords = {
+        seconds: "s",
+        minutes: "m",
+        hours: "h",
+        day: "d",
+        years: "l"
+      };
+    } else if (language === "pl") {
+      this.keywords = {
+        seconds: "s",
+        minutes: "m",
+        hours: "g",
+        day: "d",
+        years: "r"
+      };
     } else {
       this.keywords = {
         seconds: "s",
