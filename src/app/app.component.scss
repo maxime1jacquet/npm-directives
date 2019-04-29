@@ -1,0 +1,44 @@
+.main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 64px 20px 15px;
+
+  @media (max-width: 800px) {
+    padding: 64px 10px 15px;
+  }
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  color: #fff;
+  z-index: 1000;
+  background-color: #3f51b5;
+
+  &__content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__logo {
+    font-size: 24px;
+  }
+  &__menu {
+    a {
+      font-size: 18px;
+      text-decoration: none;
+      color: #fff;
+      margin-left: 10px;
+      padding: 5px;
+
+      &.active {
+        background-color: #fff;
+        color: #3f51b5;
+      }
+    }
+  }
+}

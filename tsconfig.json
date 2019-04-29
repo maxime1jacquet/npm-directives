@@ -23,6 +23,12 @@
       ],
       "ngx-simple-countdown/*": [
         "dist/ngx-simple-countdown/*"
+      ],
+      "ngx-simple-slider": [
+        "dist/ngx-simple-slider"
+      ],
+      "ngx-simple-slider/*": [
+        "dist/ngx-simple-slider/*"
       ]
     }
   }
