@@ -6,7 +6,7 @@ The most simple way to display a countdown in angular 7
 
 ## Links
 
-- [ngx-simple-countdown demo](https://chti-raidtour.fr/nomadraid)
+- [demo](https://ngx-simple.maximejacquet.fr/countdown)
 - [github repository](https://github.com/maxime1jacquet/ngx-simple-countdown)
 - [my twitter](https://twitter.com/maxime1jacquet)
 
@@ -22,7 +22,7 @@ yarn i ngx-simple-countdown
 ##### app.module.ts
 
 ```ts
-import { NgxSimpleCountdownModule } from "ngx-simple-countdown";
+import { NgxSimpleCountdownModule } from 'ngx-simple-countdown';
 
 @NgModule({
   imports: [NgxSimpleCountdownModule]
