@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app.routes';
 
 import { NgxSimpleCountdownModule } from 'ngx-simple-countdown';
 import { NgxSimpleSliderModule } from 'ngx-simple-slider';
+// import { NgxSimpleSliderModule } from './../../projects/ngx-simple-slider/src/lib/ngx-simple-slider.module';
 
 @NgModule({
   declarations: [AppComponent, SliderComponent, CountdownComponent],

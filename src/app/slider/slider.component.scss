@@ -39,6 +39,11 @@
       background-color: #ffc107;
       color: #212121;
     }
+
+    &.disabled {
+      background-color: #e0e0e0 !important;
+      color: #303f9f;
+    }
   }
 
   &__prev {
