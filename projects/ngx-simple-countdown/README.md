@@ -53,6 +53,7 @@ export class AppModule {}
   [language]="'fr'"
   [endMessage]="'custom end message'"
   [reactive]="false"
+  [hideUnit]="'ds"
   [styles]="'
     font-size: 20px;
     color: red;
@@ -71,6 +72,7 @@ export class AppModule {}
 | endMessage     | "countdown finish"                                                                  | custom the end message (or empty message)                                                            |
 | reactive       | true                                                                                | false (remove seconds and minutes)                                                                   |
 | styles         | "font-size:20px;color:#FFF;background-color:#000;padding:10px 5px;font-weight:bold" | remplace my default                                                                                  |
+| hideUnit       | ""                                                                                  | 'smhd' : to not display one or multiple unit                                                         |
 
 **if your language is not supported please [contact me](https://twitter.com/maxime1jacquet)**
 

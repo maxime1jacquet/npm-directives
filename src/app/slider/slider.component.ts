@@ -6,7 +6,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slider.component.scss']
 })
 export class SliderComponent implements OnInit {
+  public sliderData;
+  public loaded = false;
   constructor() {}
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.sliderData = [
+        {
+          img: '/assets/1.jpg'
+        },
+        {
+          img: '/assets/2.jpg'
+        },
+        {
+          img: '/assets/3.jpg'
+        }
+      ];
+
+      this.loaded = true;
+    }, 2000);
+  }
 
   public html = `
   <div class="slider">
@@ -15,7 +35,8 @@ export class SliderComponent implements OnInit {
       currentSlide="customIdForCurrentSlide"
       prev="customIdPrevBtn"
       next="customIdNextBtn"
-      [time]="300"
+      [transitionTime]="300"
+      [automatic]="true"
     >
       <div class="slider__item">
         <img src="/assets/1.jpg" alt="" />
@@ -31,6 +52,11 @@ export class SliderComponent implements OnInit {
     <button class="slider__prev" id="customIdPrevBtn">previous</button>
     <button class="slider__next" id="customIdNextBtn">next</button>
     <div class="slider__current" id="customIdForCurrentSlide"></div>
+    <div class="slider__paginated" id="paginate">
+      <button data-slide="1" role="button" aria-label="Go to slide 1">1</button>
+      <button data-slide="2" role="button" aria-label="Go to slide 2">2</button>
+      <button data-slide="3" role="button" aria-label="Go to slide 3">3</button>
+    </div>
   </div>
   `;
   public scss = `
@@ -88,5 +114,4 @@ export class SliderComponent implements OnInit {
     }
   }
   `;
-  ngOnInit() {}
 }

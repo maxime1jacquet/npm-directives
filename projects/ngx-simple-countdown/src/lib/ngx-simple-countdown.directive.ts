@@ -11,6 +11,7 @@ export class NgxSimpleCountdownDirective implements OnInit, OnDestroy {
   @Input() language = 'en';
   @Input() reactive = true;
   @Input() endMessage = 'countdown finish';
+  @Input() hideUnit = '';
   @Input() styles =
     'font-size:20px;color:#FFF;background-color:#000;padding:10px 5px;font-weight:bold;min-width:40px;text-align:center;';
 
@@ -57,41 +58,49 @@ export class NgxSimpleCountdownDirective implements OnInit, OnDestroy {
     if (this.totalSecondes > 0) {
       o = '<div style="display:flex;">';
 
-      if (this.countdownResult.day > 0) {
-        o += `<div style="${this.styles}">
+      if (this.isContent('d')) {
+        if (this.countdownResult.day > 0) {
+          o += `<div style="${this.styles}">
           ${this.countdownResult.day}${this.keywords.day}
-        </div>`;
+          </div>`;
+        }
       }
 
-      if (this.countdownResult.hours > 0 || this.countdownResult.day > 0) {
-        o += `<div style="${this.styles}">
+      if (this.isContent('h')) {
+        if (this.countdownResult.hours > 0 || this.countdownResult.day > 0) {
+          o += `<div style="${this.styles}">
           ${this.countdownResult.hours}${this.keywords.hours}
         </div>`;
+        }
       }
 
-      if (
-        (this.countdownResult.minutes > 0 ||
-          this.countdownResult.hours > 0 ||
-          this.countdownResult.day > 0) &&
-        this.reactive
-      ) {
-        o += `<div style="${this.styles}">
+      if (this.isContent('m')) {
+        if (
+          (this.countdownResult.minutes > 0 ||
+            this.countdownResult.hours > 0 ||
+            this.countdownResult.day > 0) &&
+          this.reactive
+        ) {
+          o += `<div style="${this.styles}">
           ${this.countdownResult.minutes}${this.keywords.minutes}
         </div>`;
+        }
       }
 
-      if (
-        (this.countdownResult.seconds > 0 ||
-          this.countdownResult.minutes > 0 ||
-          this.countdownResult.hours > 0 ||
-          this.countdownResult.day > 0) &&
-        this.reactive
-      ) {
-        o += `<div style="${this.styles}">
+      if (this.isContent('s')) {
+        if (
+          (this.countdownResult.seconds > 0 ||
+            this.countdownResult.minutes > 0 ||
+            this.countdownResult.hours > 0 ||
+            this.countdownResult.day > 0) &&
+          this.reactive
+        ) {
+          o += `<div style="${this.styles}">
           ${this.countdownResult.seconds}${this.keywords.seconds}
         </div>`;
+        }
+        o += '</div>';
       }
-      o += '</div>';
     } else {
       if (this.endMessage !== '') {
         o += `<div style="${this.styles}">${this.endMessage}</div>`;
@@ -99,6 +108,10 @@ export class NgxSimpleCountdownDirective implements OnInit, OnDestroy {
     }
 
     this.elementRef.nativeElement.innerHTML = o;
+  }
+
+  private isContent(unit: string): boolean {
+    return !this.hideUnit.includes(unit);
   }
 
   private updateSimpleCountdown(secondes: number): fromModel.CountdownResult {

@@ -1,41 +1,44 @@
 <section>
   <div class="title">Simple Slider</div>
 
-  <div class="slider">
+  <section class="slider" *ngIf="loaded">
     <div simpleSlider id="slider">
-      <div><img src="/assets/1.jpg" alt="" /></div>
-      <div><img src="/assets/2.jpg" alt="" /></div>
-      <div><img src="/assets/3.jpg" alt="" /></div>
+      <div *ngFor="let item of sliderData"><img [src]="item.img" alt="" /></div>
     </div>
 
     <button id="prev">previous</button>
     <button id="next">next</button>
-  </div>
+  </section>
 
   <div class="title">Simple Slider with style</div>
-  <div class="slider">
+  <div class="slider" *ngIf="loaded">
     <div
       simpleSlider
       currentSlide="customIdForCurrentSlide"
       prev="customIdPrevBtn"
       next="customIdNextBtn"
-      [time]="300"
+      [transitionTime]="300"
+      [automatic]="true"
     >
-      <div class="slider__item">
-        <img src="/assets/1.jpg" alt="" />
-      </div>
-      <div class="slider__item">
-        <img src="/assets/2.jpg" alt="" />
-      </div>
-      <div class="slider__item">
-        <img src="/assets/3.jpg" alt="" />
-      </div>
+      <div *ngFor="let item of sliderData"><img [src]="item.img" alt="" /></div>
     </div>
 
     <button class="slider__prev" id="customIdPrevBtn">previous</button>
     <button class="slider__next" id="customIdNextBtn">next</button>
     <div class="slider__current" id="customIdForCurrentSlide"></div>
+    <div class="slider__paginated" id="paginate">
+      <button
+        *ngFor="let item of sliderData; let k = index"
+        [attr.data-slide]="k + 1"
+        role="button"
+        aria-label="Go to slide 1"
+        [class.active]="k === 0"
+      >
+        {{ k + 1 }}
+      </button>
+    </div>
   </div>
+
   <div class="ensemble">
     <div class="source-code">
       HTML :
