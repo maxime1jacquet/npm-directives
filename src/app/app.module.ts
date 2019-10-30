@@ -10,14 +10,22 @@ import { AppRoutingModule } from './app.routes';
 // import { NgxSimpleSliderModule } from 'ngx-simple-slider';
 import { NgxSimpleCountdownModule } from './../../projects/ngx-simple-countdown/src/lib/ngx-simple-countdown.module';
 import { NgxSimpleSliderModule } from './../../projects/ngx-simple-slider/src/lib/ngx-simple-slider.module';
+import { NgxParallaxModule } from './../../projects/ngx-parallax/src/lib/ngx-parallax.module';
+import { NgxParallaxComponent } from './ngx-parallax/ngx-parallax.component';
 
 @NgModule({
-  declarations: [AppComponent, SliderComponent, CountdownComponent],
+  declarations: [
+    AppComponent,
+    SliderComponent,
+    CountdownComponent,
+    NgxParallaxComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgxSimpleCountdownModule,
-    NgxSimpleSliderModule
+    NgxSimpleSliderModule,
+    NgxParallaxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

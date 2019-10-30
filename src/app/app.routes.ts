@@ -3,6 +3,7 @@ import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { CountdownComponent } from './countdown/countdown.component';
 import { SliderComponent } from './slider/slider.component';
+import { NgxParallaxComponent } from './ngx-parallax/ngx-parallax.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'countdown',
     component: CountdownComponent
+  },
+  {
+    path: 'parallax',
+    component: NgxParallaxComponent
   },
   {
     path: '**',

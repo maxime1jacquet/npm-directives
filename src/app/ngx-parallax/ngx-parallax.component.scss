@@ -1,0 +1,29 @@
+.scroll {
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+
+  img {
+    position: absolute;
+    top: -200px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 200px);
+    object-fit: cover;
+  }
+}
+
+.half {
+  display: flex;
+
+  > div {
+    width: 50%;
+    padding: 10px;
+  }
+  img {
+    position: relative;
+    z-index: 1;
+    margin-top: -200px;
+    max-width: 100%;
+  }
+}

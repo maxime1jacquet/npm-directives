@@ -199,6 +199,41 @@
           }
         }
       }
+    },
+    "ngx-parallax": {
+      "root": "projects/ngx-parallax",
+      "sourceRoot": "projects/ngx-parallax/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ngx-parallax/tsconfig.lib.json",
+            "project": "projects/ngx-parallax/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-parallax/src/test.ts",
+            "tsConfig": "projects/ngx-parallax/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-parallax/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-parallax/tsconfig.lib.json",
+              "projects/ngx-parallax/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "NgxSimpleCountdownDirective"
