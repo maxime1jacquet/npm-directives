@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { SliderComponent } from './slider/slider.component';
 import { CountdownComponent } from './countdown/countdown.component';
+import { NgxParallaxComponent } from './ngx-parallax/ngx-parallax.component';
 import { AppRoutingModule } from './app.routes';
 
 // import { NgxSimpleCountdownModule } from 'ngx-simple-countdown';
@@ -11,7 +12,6 @@ import { AppRoutingModule } from './app.routes';
 import { NgxSimpleCountdownModule } from './../../projects/ngx-simple-countdown/src/lib/ngx-simple-countdown.module';
 import { NgxSimpleSliderModule } from './../../projects/ngx-simple-slider/src/lib/ngx-simple-slider.module';
 import { NgxParallaxModule } from './../../projects/ngx-parallax/src/lib/ngx-parallax.module';
-import { NgxParallaxComponent } from './ngx-parallax/ngx-parallax.component';
 
 @NgModule({
   declarations: [

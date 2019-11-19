@@ -1,6 +1,5 @@
 import {
   Directive,
-  OnInit,
   Input,
   ElementRef,
   Renderer2,
@@ -8,7 +7,7 @@ import {
   AfterViewInit
 } from '@angular/core';
 import { fromEvent, Observable, Subject } from 'rxjs';
-import { tap, takeUntil, filter, map } from 'rxjs/operators';
+import { tap, takeUntil, filter, map, debounceTime } from 'rxjs/operators';
 
 import { BrowserWindowRef } from './services/windowref.service';
 import { ifVisible } from './utils/visible.util';
@@ -16,7 +15,7 @@ import { ifVisible } from './utils/visible.util';
 @Directive({
   selector: '[ngx-parallax]'
 })
-export class ParallaxDirective implements OnInit, OnDestroy, AfterViewInit {
+export class ParallaxDirective implements OnDestroy, AfterViewInit {
   @Input() speed = 30;
   @Input() axe = 'y';
   @Input() property = 'transform';
@@ -26,7 +25,8 @@ export class ParallaxDirective implements OnInit, OnDestroy, AfterViewInit {
   private element: HTMLElement;
   private initialPosition: number;
   private componentDestroy$ = new Subject<boolean>();
-  private windowScroll$: Observable<any>;
+  private windowScroll$: Observable<number>;
+  private windowResize$: Observable<number>;
 
   constructor(
     private hostElement: ElementRef,
@@ -34,33 +34,37 @@ export class ParallaxDirective implements OnInit, OnDestroy, AfterViewInit {
     private wr: BrowserWindowRef
   ) {}
 
-  ngOnInit() {
-    this.element = this.hostElement.nativeElement;
-    this.initParallax();
-  }
-
   ngAfterViewInit() {
-    if (this.element) {
+    this.element = this.hostElement.nativeElement;
+
+    if (this.element && this.wr.nativeWindow) {
+      this.initParallax();
       ifVisible(this, this.element, 0, this.startParallax);
     }
   }
 
   private initParallax(): void {
-    if (this.wr.nativeWindow) {
-      this.windowScroll$ = fromEvent(this.wr.nativeWindow, 'scroll').pipe(
-        takeUntil(this.componentDestroy$),
-        filter(_ => this.wr.nativeWindow),
-        filter(_ => this.active),
-        map(_ => this.calculateCoef()),
-        tap((coef: number) => this.renderParallax(coef))
-      );
-    }
+    this.windowScroll$ = fromEvent(this.wr.nativeWindow, 'scroll').pipe(
+      takeUntil(this.componentDestroy$),
+      filter(_ => this.wr.nativeWindow),
+      filter(_ => this.active),
+      map(_ => this.calculateCoef()),
+      tap((coef: number) => this.renderParallax(coef))
+    );
+    this.windowResize$ = fromEvent(this.wr.nativeWindow, 'resize').pipe(
+      takeUntil(this.componentDestroy$),
+      debounceTime(500),
+      filter(_ => this.active),
+      map(_ => this.calculateCoef()),
+      tap((coef: number) => this.renderParallax(coef))
+    );
   }
 
   private startParallax(): void {
     if (this.wr.nativeWindow && this.initialPosition === undefined) {
       this.initialPosition = this.wr.nativeWindow.pageYOffset;
       this.windowScroll$.subscribe();
+      this.windowResize$.subscribe();
     }
   }
 

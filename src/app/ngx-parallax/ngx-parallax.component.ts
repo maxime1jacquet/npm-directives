@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgxParallaxComponent implements OnInit {
   active = true;
+  loaded = false;
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    setTimeout(() => {
+      this.loaded = true;
+    }, 2000);
+  }
 
   toogleParallax() {
     this.active = !this.active;
