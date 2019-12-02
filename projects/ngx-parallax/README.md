@@ -12,7 +12,7 @@ yarn i @yoozly/ngx-parallax
 ## 2- Import NgxParallaxModule in your angular module
 
 ```ts
-import { NgxParallaxModule } from 'ngx-parallax';
+import { NgxParallaxModule } from '@yoozly/ngx-parallax';
 
 @NgModule({
   imports: [
