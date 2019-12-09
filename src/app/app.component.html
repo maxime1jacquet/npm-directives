@@ -12,3 +12,12 @@
 <div class="main">
   <router-outlet></router-outlet>
 </div>
+
+<ngx-cursor
+  [color]="'#000'"
+  [zindex]="9999"
+  [delay]="50"
+  [selectors]="['plus', 'view', 'stop']"
+  [words]="['+', 'voir plus', 'STOP']"
+></ngx-cursor>
+<!-- [cursor]="false" -->

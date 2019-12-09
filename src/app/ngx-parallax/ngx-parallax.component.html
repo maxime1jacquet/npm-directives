@@ -1,6 +1,6 @@
 <section class="ngx-parallax" *ngIf="loaded">
   <div class="scroll">
-    <img src="assets/3.jpg" alt="" ngx-parallax />
+    <img src="assets/3.jpg" alt="" ngx-parallax cursor-color="#FFF" />
   </div>
   <br />
   <br />
@@ -29,6 +29,7 @@
       natus dolores soluta? Repellat incidunt amet illum. praesentium laudantium
       minima quidem voluptatem debitis quibusdam, quisquam ducimus id quam
       reiciendis, fugiat eum. Commodi doloremque voluptas aliquam! Sunt sit
+      <!-- <a href="http://google.com">toto</a> -->
     </div>
     <div>
       <img
@@ -37,6 +38,7 @@
         ngx-parallax
         [speed]="50"
         [active]="active"
+        cursor-view
       />
     </div>
   </div>
@@ -52,7 +54,13 @@
   <br />
   <br />
   <div style="text-align: center;">
-    <h2 ngx-parallax [speed]="0.5" propertyValue="scale" [active]="active">
+    <h2
+      ngx-parallax
+      [speed]="0.5"
+      propertyValue="scale"
+      [active]="active"
+      cursor-plus
+    >
       Titre en avant
     </h2>
   </div>
@@ -140,7 +148,12 @@
     fugiat perferendis possimus illo, sunt, quidem eaque nulla? Fugiat iste
     possimus numquam laboriosam optio illo laborum at quasi quibusdam
     voluptatibus. Ut, culpa molestiae modi quae atque at quas itaque adipisci
-    <button (click)="toogleParallax()">
+    <button
+      (click)="toogleParallax()"
+      cursor-active
+      cursor-color="red"
+      cursor-stop
+    >
       STOP IT
     </button>
     dolor, assumenda error incidunt enim eum vel dicta fuga vero. Atque eius in

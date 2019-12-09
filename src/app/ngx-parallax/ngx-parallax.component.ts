@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NgxParallaxComponent implements OnInit {
   active = true;
-  loaded = false;
+  loaded = true;
   constructor() {}
 
   ngOnInit() {

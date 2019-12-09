@@ -35,6 +35,12 @@
       ],
       "ngx-parallax/*": [
         "dist/ngx-parallax/*"
+      ],
+      "ngx-cursor": [
+        "dist/ngx-cursor"
+      ],
+      "ngx-cursor/*": [
+        "dist/ngx-cursor/*"
       ]
     }
   }

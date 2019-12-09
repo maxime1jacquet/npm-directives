@@ -1,0 +1,43 @@
+body {
+  --ngx-cursor: auto;
+  --ngx-cursor-color: #000;
+  --ngx-cursor-opacity: 0.5;
+  --ngx-cursor-size: 30;
+  --ngx-cursor-zindex: 999;
+  --ngx-cursor-txtcolor: #fff;
+}
+
+::ng-deep * {
+  cursor: var(--ngx-cursor);
+}
+
+#ngx-cursor {
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  z-index: var(--ngx-cursor-zindex);
+
+  span {
+    align-items: center;
+    background-color: var(--ngx-cursor-color);
+    border-radius: 100%;
+    color: var(--ngx-cursor-txtcolor);
+    display: flex;
+    font-size: 8px;
+    font-weight: bold;
+    height: var(--ngx-cursor-size);
+    justify-content: center;
+    left: calc(var(--ngx-cursor-size) / -2);
+    opacity: var(--ngx-cursor-opacity);
+    position: absolute;
+    text-align: center;
+    top: calc(var(--ngx-cursor-size) / -2);
+    transition: all 0.25s cubic-bezier(0.72, 0.19, 0.28, 0.94);
+    width: var(--ngx-cursor-size);
+  }
+
+  &.active span {
+    transform: scale(2);
+  }
+}
