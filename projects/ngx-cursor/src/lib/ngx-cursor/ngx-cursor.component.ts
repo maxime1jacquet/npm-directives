@@ -7,7 +7,7 @@ import {
   OnChanges,
   OnDestroy
 } from '@angular/core';
-import { fromEvent, merge, Subject, Subscription, zip } from 'rxjs';
+import { fromEvent, Subject, Subscription, combineLatest } from 'rxjs';
 import {
   tap,
   pluck,
@@ -15,8 +15,7 @@ import {
   delay,
   distinctUntilChanged,
   filter,
-  takeUntil,
-  debounceTime
+  takeUntil
 } from 'rxjs/operators';
 
 import { BrowserWindowRef } from '../services/windowref.service';
@@ -88,7 +87,7 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
       // const getAncestorsAttrs$ = mousemove$.pipe(
       //   pluck('target', 'parentNode', 'attributes'),
       //   distinctUntilChanged(),
-      //   filter((arrayAttr: any[]) => false),
+      //   filter((attrs: any[]) => attrs !== undefined),
       //   map((attrs: any[]) =>
       //     Object.values(attrs).filter(attr => {
       //       const isStandard = this.cursorType.indexOf(attr.name) !== -1;
@@ -108,10 +107,11 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
         })
       );
 
-      this.merge$ = merge(
+      this.merge$ = combineLatest(
         deplaceCursor$,
         getElementsAttrs$,
         applyStylesFromAttr$
+        // getAncestorsAttrs$,
       )
         .pipe(takeUntil(this.componentDestroy$))
         .subscribe();
