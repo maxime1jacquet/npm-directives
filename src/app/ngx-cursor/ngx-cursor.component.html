@@ -1,0 +1,27 @@
+<section class="ngx-cursor-c">
+  <div class="img" cursor-color="#FFF">
+    <img src="assets/3.jpg" alt="" />
+  </div>
+  <div class="ngx-cursor-c__listlink">
+    <a href="http://google.com">hover simple</a>
+    <a href="http://google.com" cursor-opacity="1">hover opacity</a>
+    <a href="http://google.com" cursor-color="red">hover change color</a>
+    <a href="http://google.com" cursor-opacity="1" cursor-color="red"
+      >hover change color + opacity</a
+    >
+    <a href="http://google.com" cursor-opacity="1" cursor-color="transparent"
+      >hover transparent</a
+    >
+    <a href="http://google.com" cursor-view>hover custom text</a>
+    <a href="http://google.com" cursor-stop cursor-color="red"
+      >hover custom text + color</a
+    >
+  </div>
+</section>
+
+<ngx-cursor
+  [cursor]="false"
+  [zindex]="9999"
+  [selectors]="['plus', 'view', 'stop']"
+  [words]="['more', 'voir plus', 'STOP']"
+></ngx-cursor>

@@ -1,0 +1,13 @@
+.ngx-cursor-c {
+  img {
+    margin: 20px 0;
+  }
+  a {
+    cursor: pointer;
+  }
+
+  &__listlink {
+    display: flex;
+    justify-content: space-between;
+  }
+}

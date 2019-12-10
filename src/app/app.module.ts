@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { SliderComponent } from './slider/slider.component';
 import { CountdownComponent } from './countdown/countdown.component';
 import { NgxParallaxComponent } from './ngx-parallax/ngx-parallax.component';
+import { NgxCursorComponent } from './ngx-cursor/ngx-cursor.component';
 import { AppRoutingModule } from './app.routes';
 
 // import { NgxSimpleCountdownModule } from 'ngx-simple-countdown';
@@ -19,7 +20,8 @@ import { NgxCursorModule } from './../../projects/ngx-cursor/src/lib/ngx-cursor.
     AppComponent,
     SliderComponent,
     CountdownComponent,
-    NgxParallaxComponent
+    NgxParallaxComponent,
+    NgxCursorComponent
   ],
   imports: [
     BrowserModule,

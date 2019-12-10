@@ -4,17 +4,22 @@ import {
   Input,
   ViewChild,
   ElementRef,
-  OnChanges
+  OnChanges,
+  OnDestroy
 } from '@angular/core';
-import { fromEvent, merge } from 'rxjs';
+import { fromEvent, merge, Subject, Subscription, zip } from 'rxjs';
 import {
   tap,
   pluck,
   map,
   delay,
   distinctUntilChanged,
-  filter
+  filter,
+  takeUntil,
+  debounceTime
 } from 'rxjs/operators';
+
+import { BrowserWindowRef } from '../services/windowref.service';
 
 @Component({
   selector: 'ngx-cursor',
@@ -25,18 +30,22 @@ import {
   `,
   styleUrls: ['./ngx-cursor.component.scss']
 })
-export class NgxCursorComponent implements AfterViewInit, OnChanges {
+export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() cursor = true;
   @Input() color = '#000';
   @Input() txtcolor = '#FFF';
   @Input() size = '30px';
-  @Input() opacity = 0.5;
+  @Input() opacity = 0.4;
   @Input() delay = 50;
   @Input() zindex = 999;
-
   @Input() words: string[] = [];
   @Input() selectors: string[] = [];
 
+  @ViewChild('ngxCursor') ngxCursor: ElementRef;
+  @ViewChild('ngxCursorEl') ngxCursorEl: ElementRef;
+
+  public merge$: Subscription;
+  private componentDestroy$ = new Subject<boolean>();
   public firstColor: string = this.color;
   public cursorType = [
     'cursor-active',
@@ -46,50 +55,67 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges {
     'routerlink'
   ];
 
-  @ViewChild('ngxCursor') ngxCursor: ElementRef;
-  @ViewChild('ngxCursorEl') ngxCursorEl: ElementRef;
-
-  constructor() {}
+  constructor(private wr: BrowserWindowRef) {}
 
   ngOnChanges() {
     this.setStyles();
   }
 
   ngAfterViewInit() {
-    const mousemove$ = fromEvent(document, 'mousemove');
+    if (this.wr.nativeWindow) {
+      const mousemove$ = fromEvent(this.wr.nativeWindow, 'mousemove');
 
-    const deplaceCursor$ = mousemove$.pipe(
-      delay(this.delay),
-      tap((e: MouseEvent) => {
-        this.deplaceCursor(e.clientX, e.clientY);
-      })
-    );
-
-    const elementsAttrs$ = mousemove$.pipe(
-      pluck('target', 'attributes'),
-      distinctUntilChanged(),
-      map((attrs: any[]) => Object.values(attrs)),
-      map((attrs: any[]) =>
-        attrs.filter(attr => {
-          const isStandard = this.cursorType.indexOf(attr.name) !== -1;
-          const isCustom = this.customType().indexOf(attr.name) !== -1;
-          return isStandard || isCustom;
+      const deplaceCursor$ = mousemove$.pipe(
+        delay(this.delay),
+        tap((e: MouseEvent) => {
+          this.deplaceCursor(e.clientX, e.clientY);
         })
+      );
+
+      const getElementsAttrs$ = mousemove$.pipe(
+        pluck('target', 'attributes'),
+        distinctUntilChanged(),
+        map((attrs: any[]) =>
+          Object.values(attrs).filter(attr => {
+            const isStandard = this.cursorType.indexOf(attr.name) !== -1;
+            const isCustom = this.customType().indexOf(attr.name) !== -1;
+
+            return isStandard || isCustom;
+          })
+        )
+      );
+
+      // const getAncestorsAttrs$ = mousemove$.pipe(
+      //   pluck('target', 'parentNode', 'attributes'),
+      //   distinctUntilChanged(),
+      //   filter((arrayAttr: any[]) => false),
+      //   map((attrs: any[]) =>
+      //     Object.values(attrs).filter(attr => {
+      //       const isStandard = this.cursorType.indexOf(attr.name) !== -1;
+      //       const isCustom = this.customType().indexOf(attr.name) !== -1;
+      //       return isStandard || isCustom;
+      //     })
+      //   )
+      // );
+
+      const applyStylesFromAttr$ = getElementsAttrs$.pipe(
+        tap(_ => this.removeClass()),
+        filter((arrayAttr: any[]) => arrayAttr.length > 0),
+        tap((arrayAttr: any[]) => {
+          arrayAttr.map(item => {
+            this.HoverInElement(item, this.customType().indexOf(item.name));
+          });
+        })
+      );
+
+      this.merge$ = merge(
+        deplaceCursor$,
+        getElementsAttrs$,
+        applyStylesFromAttr$
       )
-    );
-
-    const applyStylesFromAttr$ = elementsAttrs$.pipe(
-      tap(_ => this.removeClass()),
-      filter((arrayAttr: any[]) => arrayAttr.length > 0),
-      tap((arrayAttr: any[]) => {
-        arrayAttr.map(item => {
-          this.HoverInElement(item, this.customType().indexOf(item.name));
-        });
-      })
-    );
-
-    const merge$ = merge(deplaceCursor$, elementsAttrs$, applyStylesFromAttr$);
-    merge$.subscribe();
+        .pipe(takeUntil(this.componentDestroy$))
+        .subscribe();
+    }
   }
 
   private HoverInElement(item: any, i: number): void {
@@ -103,7 +129,6 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges {
       this.color = item.value;
       this.setStyles();
     } else {
-      // custom
       this.addClass('active');
       this.customTxtStyles(this.words[i]);
     }
@@ -125,19 +150,39 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges {
   }
 
   private setStyles(): void {
-    document.body.style.setProperty('--ngx-cursor-color', this.color);
-    document.body.style.setProperty('--ngx-cursor-opacity', `${this.opacity}`);
-    document.body.style.setProperty('--ngx-cursor-size', this.size);
-    document.body.style.setProperty('--ngx-cursor-zindex', `${this.zindex}`);
-    document.body.style.setProperty(
-      '--ngx-cursor-txtcolor',
-      `${this.txtcolor}`
-    );
+    if (this.wr.nativeWindow) {
+      this.wr.nativeWindow.document.body.style.setProperty(
+        '--ngx-cursor-color',
+        this.color
+      );
+      this.wr.nativeWindow.document.body.style.setProperty(
+        '--ngx-cursor-opacity',
+        `${this.opacity}`
+      );
+      this.wr.nativeWindow.document.body.style.setProperty(
+        '--ngx-cursor-size',
+        this.size
+      );
+      this.wr.nativeWindow.document.body.style.setProperty(
+        '--ngx-cursor-zindex',
+        `${this.zindex}`
+      );
+      this.wr.nativeWindow.document.body.style.setProperty(
+        '--ngx-cursor-txtcolor',
+        `${this.txtcolor}`
+      );
 
-    if (this.cursor) {
-      document.body.style.setProperty('--ngx-cursor', 'auto');
-    } else {
-      document.body.style.setProperty('--ngx-cursor', 'none');
+      if (this.cursor) {
+        this.wr.nativeWindow.document.body.style.setProperty(
+          '--ngx-cursor',
+          'auto'
+        );
+      } else {
+        this.wr.nativeWindow.document.body.style.setProperty(
+          '--ngx-cursor',
+          'none'
+        );
+      }
     }
   }
 
@@ -146,8 +191,23 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges {
   }
 
   private customTxtStyles(word: string): void {
-    this.ngxCursorEl.nativeElement.innerHTML = word;
-    document.body.style.setProperty('--ngx-cursor-opacity', `0.9`);
-    document.body.style.setProperty('--ngx-cursor', 'none');
+    if (this.wr.nativeWindow) {
+      if (word) {
+        this.ngxCursorEl.nativeElement.innerHTML = word;
+      }
+      this.wr.nativeWindow.document.body.style.setProperty(
+        '--ngx-cursor-opacity',
+        `0.9`
+      );
+      this.wr.nativeWindow.document.body.style.setProperty(
+        '--ngx-cursor',
+        'none'
+      );
+    }
+  }
+
+  ngOnDestroy() {
+    this.componentDestroy$.next();
+    this.componentDestroy$.complete();
   }
 }

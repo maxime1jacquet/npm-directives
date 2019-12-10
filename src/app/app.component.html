@@ -5,6 +5,7 @@
       <a routerLinkActive="active" routerLink="/slider">slider</a>
       <a routerLinkActive="active" routerLink="/parallax">parallax</a>
       <a routerLinkActive="active" routerLink="/countdown">countdown</a>
+      <a routerLinkActive="active" routerLink="/cursor">cursor</a>
     </div>
   </div>
 </nav>
@@ -12,12 +13,3 @@
 <div class="main">
   <router-outlet></router-outlet>
 </div>
-
-<ngx-cursor
-  [color]="'#000'"
-  [zindex]="9999"
-  [delay]="50"
-  [selectors]="['plus', 'view', 'stop']"
-  [words]="['+', 'voir plus', 'STOP']"
-></ngx-cursor>
-<!-- [cursor]="false" -->

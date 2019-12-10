@@ -1,6 +1,26 @@
 {
   "name": "ngx-cursor",
-  "version": "0.0.1",
+  "version": "0.1.0",
+  "author": "Maxime Jacquet",
+  "description": "A simple way to change cursor in Angular 7-8-9",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxime1jacquet/npm-directives/tree/master/projects/ngx-cursor"
+  },
+  "homepage": "https://ngx-simple.maximejacquet.fr/cursor",
+  "keywords": [
+    "Angular",
+    "Angular 7",
+    "Angular 2+",
+    "cursor",
+    "beautiful",
+    "beautiful-cursor",
+    "cursor javascript",
+    "ux cursor",
+    "ngx-cursor",
+    "ng cursor"
+  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^7.0.0",
     "@angular/core": "^7.0.0"
