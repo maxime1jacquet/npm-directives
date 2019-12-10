@@ -45,7 +45,7 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   public merge$: Subscription;
   private componentDestroy$ = new Subject<boolean>();
-  public firstColor: string = this.color;
+  public firstColor: string;
   public cursorType = [
     'cursor-active',
     'cursor-color',
@@ -62,6 +62,7 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   ngAfterViewInit() {
     if (this.wr.nativeWindow) {
+      this.firstColor = this.color;
       const mousemove$ = fromEvent(this.wr.nativeWindow, 'mousemove');
 
       const deplaceCursor$ = mousemove$.pipe(
