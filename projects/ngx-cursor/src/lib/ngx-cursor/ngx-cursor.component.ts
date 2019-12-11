@@ -73,16 +73,15 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
       );
 
       const getElementsAttrs$ = mousemove$.pipe(
-        pluck('target', 'attributes'),
+        pluck('path', '1', 'attributes'),
         distinctUntilChanged(),
-        map((attrs: any[]) =>
-          Object.values(attrs).filter(attr => {
+        map((attrsEl1: any) => {
+          return Object.values(attrsEl1).filter((attr: any) => {
             const isStandard = this.cursorType.indexOf(attr.name) !== -1;
             const isCustom = this.customType().indexOf(attr.name) !== -1;
-
             return isStandard || isCustom;
-          })
-        )
+          });
+        })
       );
 
       // const getAncestorsAttrs$ = mousemove$.pipe(
