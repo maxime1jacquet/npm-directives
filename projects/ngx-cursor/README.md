@@ -90,6 +90,7 @@ export class AppModule {}
 | zindex          | 999           | change default cursor z-index                        |
 | selectors       | []            | set a list of custom selectors to display small text |
 | words           | []            | display words if user hover the selector with indice |
+| chekNParents    | 3             | check if n parent have curstom attribute             |
 
 ## Docs custom attribute
 

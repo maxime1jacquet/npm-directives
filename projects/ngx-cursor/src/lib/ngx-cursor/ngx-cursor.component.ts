@@ -8,17 +8,9 @@ import {
   OnDestroy
 } from '@angular/core';
 import { fromEvent, Subject, Subscription, combineLatest } from 'rxjs';
-import {
-  tap,
-  pluck,
-  map,
-  delay,
-  distinctUntilChanged,
-  filter,
-  takeUntil
-} from 'rxjs/operators';
-
+import { tap, pluck, map, delay, filter, takeUntil } from 'rxjs/operators';
 import { BrowserWindowRef } from '../services/windowref.service';
+import * as polyfills from '../polyfills/path';
 
 @Component({
   selector: 'ngx-cursor',
@@ -39,6 +31,7 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() zindex = 999;
   @Input() words: string[] = [];
   @Input() selectors: string[] = [];
+  @Input() chekNParents = 3;
 
   @ViewChild('ngxCursor') ngxCursor: ElementRef;
   @ViewChild('ngxCursorEl') ngxCursorEl: ElementRef;
@@ -62,7 +55,7 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   ngAfterViewInit() {
     if (this.wr.nativeWindow) {
-      this.firstColor = this.color;
+      this.init();
       const mousemove$ = fromEvent(this.wr.nativeWindow, 'mousemove');
 
       const deplaceCursor$ = mousemove$.pipe(
@@ -72,37 +65,37 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
         })
       );
 
-      const getElementsAttrs$ = mousemove$.pipe(
-        pluck('path', '1', 'attributes'),
-        distinctUntilChanged(),
-        map((attrsEl1: any) => {
-          return Object.values(attrsEl1).filter((attr: any) => {
-            const isStandard = this.cursorType.indexOf(attr.name) !== -1;
-            const isCustom = this.customType().indexOf(attr.name) !== -1;
-            return isStandard || isCustom;
-          });
-        })
+      const getElementsFamilly$ = mousemove$.pipe(
+        tap(x => console.log(x)),
+        pluck('path'),
+        filter((familly: any[]) => familly && familly.length > 0),
+        map((familly: any[]) => familly.slice(0, this.chekNParents))
       );
 
-      // const getAncestorsAttrs$ = mousemove$.pipe(
-      //   pluck('target', 'parentNode', 'attributes'),
-      //   distinctUntilChanged(),
-      //   filter((attrs: any[]) => attrs !== undefined),
-      //   map((attrs: any[]) =>
-      //     Object.values(attrs).filter(attr => {
-      //       const isStandard = this.cursorType.indexOf(attr.name) !== -1;
-      //       const isCustom = this.customType().indexOf(attr.name) !== -1;
-      //       return isStandard || isCustom;
-      //     })
-      //   )
-      // );
+      const getElementsAttrs$ = getElementsFamilly$.pipe(
+        filter(data => data && data.length > 0),
+        map((data: any[]) =>
+          data.map(item => {
+            if (item.attributes) {
+              return Object.values(item.attributes).filter((attr: any) => {
+                const isStandard = this.cursorType.indexOf(attr.name) !== -1;
+                const isCustom = this.customType().indexOf(attr.name) !== -1;
+                return isStandard || isCustom;
+              });
+            }
+          })
+        )
+      );
 
       const applyStylesFromAttr$ = getElementsAttrs$.pipe(
         tap(_ => this.removeClass()),
+        map((data: any) => data.flat()),
         filter((arrayAttr: any[]) => arrayAttr.length > 0),
         tap((arrayAttr: any[]) => {
           arrayAttr.map(item => {
-            this.HoverInElement(item, this.customType().indexOf(item.name));
+            if (item) {
+              this.HoverInElement(item, this.customType().indexOf(item.name));
+            }
           });
         })
       );
@@ -111,11 +104,15 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
         deplaceCursor$,
         getElementsAttrs$,
         applyStylesFromAttr$
-        // getAncestorsAttrs$,
       )
         .pipe(takeUntil(this.componentDestroy$))
         .subscribe();
     }
+  }
+
+  private init(): void {
+    polyfills.path();
+    this.firstColor = this.color;
   }
 
   private HoverInElement(item: any, i: number): void {
