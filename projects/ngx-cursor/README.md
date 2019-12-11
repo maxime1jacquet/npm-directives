@@ -20,7 +20,7 @@ npm i ngx-cursor
 ##### app.module.ts
 
 ```ts
-import { NgxCursorModule } from 'ngx-simple-slider';
+import { NgxCursorModule } from 'ngx-cursor';
 
 @NgModule({
   imports: [...NgxCursorModule]
