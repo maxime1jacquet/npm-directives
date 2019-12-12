@@ -1,6 +1,6 @@
 {
   "name": "ngx-cursor",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Maxime Jacquet",
   "description": "A simple way to change cursor in Angular 7-8-9",
   "repository": {

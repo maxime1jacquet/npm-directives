@@ -8,7 +8,15 @@ import {
   OnDestroy
 } from '@angular/core';
 import { fromEvent, Subject, Subscription, combineLatest } from 'rxjs';
-import { tap, pluck, map, delay, filter, takeUntil } from 'rxjs/operators';
+import {
+  tap,
+  pluck,
+  map,
+  delay,
+  filter,
+  takeUntil,
+  throttleTime
+} from 'rxjs/operators';
 import { BrowserWindowRef } from '../services/windowref.service';
 import * as polyfills from '../polyfills/path';
 
@@ -31,13 +39,14 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() zindex = 999;
   @Input() words: string[] = [];
   @Input() selectors: string[] = [];
-  @Input() chekNParents = 3;
+  @Input() chekNParents = 4;
 
   @ViewChild('ngxCursor') ngxCursor: ElementRef;
   @ViewChild('ngxCursorEl') ngxCursorEl: ElementRef;
 
   public merge$: Subscription;
   private componentDestroy$ = new Subject<boolean>();
+
   public firstColor: string;
   public cursorType = [
     'cursor-active',
@@ -66,16 +75,15 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
       );
 
       const getElementsFamilly$ = mousemove$.pipe(
-        tap(x => console.log(x)),
+        throttleTime(70),
         pluck('path'),
-        filter((familly: any[]) => familly && familly.length > 0),
-        map((familly: any[]) => familly.slice(0, this.chekNParents))
+        filter((familly: HTMLElement[]) => familly && familly.length > 0),
+        map((familly: HTMLElement[]) => familly.slice(0, this.chekNParents))
       );
 
       const getElementsAttrs$ = getElementsFamilly$.pipe(
-        filter(data => data && data.length > 0),
-        map((data: any[]) =>
-          data.map(item => {
+        map((data: HTMLElement[]) =>
+          data.map((item: HTMLElement) => {
             if (item.attributes) {
               return Object.values(item.attributes).filter((attr: any) => {
                 const isStandard = this.cursorType.indexOf(attr.name) !== -1;
@@ -168,8 +176,17 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
         '--ngx-cursor-txtcolor',
         `${this.txtcolor}`
       );
+    }
+    this.isCursor(this.cursor);
+  }
 
-      if (this.cursor) {
+  private customType(): string[] {
+    return this.selectors.map(selector => `cursor-${selector}`);
+  }
+
+  private isCursor(iscursor: boolean): void {
+    if (this.wr.nativeWindow) {
+      if (iscursor) {
         this.wr.nativeWindow.document.body.style.setProperty(
           '--ngx-cursor',
           'auto'
@@ -181,10 +198,6 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
         );
       }
     }
-  }
-
-  private customType(): string[] {
-    return this.selectors.map(selector => `cursor-${selector}`);
   }
 
   private customTxtStyles(word: string): void {
@@ -206,5 +219,6 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
   ngOnDestroy() {
     this.componentDestroy$.next();
     this.componentDestroy$.complete();
+    this.isCursor(true);
   }
 }
