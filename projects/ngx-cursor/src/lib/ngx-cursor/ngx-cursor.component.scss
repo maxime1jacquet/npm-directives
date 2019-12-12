@@ -5,6 +5,7 @@ body {
   --ngx-cursor-size: 30;
   --ngx-cursor-zindex: 999;
   --ngx-cursor-txtcolor: #fff;
+  --ngx-cursor-border: none;
 }
 
 ::ng-deep * {
@@ -22,6 +23,7 @@ body {
     align-items: center;
     background-color: var(--ngx-cursor-color);
     border-radius: 100%;
+    border: var(--ngx-cursor-border);
     color: var(--ngx-cursor-txtcolor);
     display: flex;
     font-size: 8px;

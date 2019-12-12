@@ -30,28 +30,33 @@ import * as polyfills from '../polyfills/path';
   styleUrls: ['./ngx-cursor.component.scss']
 })
 export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
-  @Input() cursor = true;
+  @Input() border = 'none';
+  @Input() chekNParents = 5;
   @Input() color = '#000';
-  @Input() txtcolor = '#FFF';
-  @Input() size = '30px';
-  @Input() opacity = 0.4;
+  @Input() cursor = true;
   @Input() delay = 50;
-  @Input() zindex = 999;
-  @Input() words: string[] = [];
+  @Input() opacity = 0.4;
   @Input() selectors: string[] = [];
-  @Input() chekNParents = 4;
+  @Input() size = '30px';
+  @Input() txtcolor = '#FFF';
+  @Input() words: string[] = [];
+  @Input() zindex = 999;
 
   @ViewChild('ngxCursor') ngxCursor: ElementRef;
   @ViewChild('ngxCursorEl') ngxCursorEl: ElementRef;
 
-  public merge$: Subscription;
   private componentDestroy$ = new Subject<boolean>();
+  public merge$: Subscription;
 
   public firstColor: string;
+  public firstSize: string;
+  public firstBorder: string;
   public cursorType = [
     'cursor-active',
     'cursor-color',
     'cursor-opacity',
+    'cursor-border',
+    'cursor-size',
     'href',
     'routerlink'
   ];
@@ -121,6 +126,8 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
   private init(): void {
     polyfills.path();
     this.firstColor = this.color;
+    this.firstSize = this.size;
+    this.firstBorder = this.border;
   }
 
   private HoverInElement(item: any, i: number): void {
@@ -132,6 +139,12 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
       this.addClass('active');
     } else if (item.name === 'cursor-color') {
       this.color = item.value;
+      this.setStyles();
+    } else if (item.name === 'cursor-border') {
+      this.border = item.value;
+      this.setStyles();
+    } else if (item.name === 'cursor-size') {
+      this.size = item.value;
       this.setStyles();
     } else {
       this.addClass('active');
@@ -145,6 +158,8 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   private removeClass(): void {
     this.color = this.firstColor;
+    this.border = this.firstBorder;
+    this.size = this.firstSize;
     this.ngxCursor.nativeElement.classList.remove('active');
     this.ngxCursorEl.nativeElement.innerHTML = '';
     this.setStyles();
@@ -159,6 +174,10 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
       this.wr.nativeWindow.document.body.style.setProperty(
         '--ngx-cursor-color',
         this.color
+      );
+      this.wr.nativeWindow.document.body.style.setProperty(
+        '--ngx-cursor-border',
+        this.border
       );
       this.wr.nativeWindow.document.body.style.setProperty(
         '--ngx-cursor-opacity',

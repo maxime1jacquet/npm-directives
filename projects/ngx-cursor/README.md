@@ -84,6 +84,7 @@ export class AppModule {}
 | --------------- | ------------- | ---------------------------------------------------- |
 | cursor          | true          | display default cursor or not                        |
 | color           | #000          | change default cursor bg color                       |
+| border          | none          | add border in cursor                                 |
 | size            | 30px          | change default cursor size                           |
 | opacity         | 0.4           | change default cursor opacity                        |
 | delay           | 50            | change delay of mousemouve                           |
@@ -99,6 +100,8 @@ export class AppModule {}
 | cursor-active  | add cusor with active mode      |
 | cursor-color   | change cursor color in hover    |
 | cursor-opacity | change cursor opacity in hover  |
+| cursor-size    | change cursor size in hover     |
+| cursor-border  | change cursor border in hover   |
 | cursor-?       | display a custom words in hover |
 
 # And that's it, Enjoy !
