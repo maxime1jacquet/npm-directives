@@ -7,7 +7,7 @@ import {
   OnChanges,
   OnDestroy
 } from '@angular/core';
-import { fromEvent, Subject, Subscription, combineLatest } from 'rxjs';
+import { fromEvent, Subject, Subscription, combineLatest, merge } from 'rxjs';
 import {
   tap,
   pluck,
@@ -15,7 +15,8 @@ import {
   delay,
   filter,
   takeUntil,
-  throttleTime
+  throttleTime,
+  debounceTime
 } from 'rxjs/operators';
 import { BrowserWindowRef } from '../services/windowref.service';
 import * as polyfills from '../polyfills/path';
@@ -50,6 +51,7 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
 
   public firstColor: string;
   public firstSize: string;
+  public firstOpacity: number;
   public firstBorder: string;
   public cursorType = [
     'cursor-active',
@@ -70,17 +72,19 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
   ngAfterViewInit() {
     if (this.wr.nativeWindow) {
       this.init();
-      const mousemove$ = fromEvent(this.wr.nativeWindow, 'mousemove');
 
-      const deplaceCursor$ = mousemove$.pipe(
+      const mousemove$ = fromEvent(this.wr.nativeWindow, 'mousemove');
+      const click$ = fromEvent(this.wr.nativeWindow, 'click');
+
+      const deplaceCursor$ = merge(mousemove$, click$).pipe(
         delay(this.delay),
         tap((e: MouseEvent) => {
           this.deplaceCursor(e.clientX, e.clientY);
         })
       );
 
-      const getElementsFamilly$ = mousemove$.pipe(
-        throttleTime(70),
+      const getElementsFamilly$ = merge(mousemove$, click$).pipe(
+        throttleTime(100),
         pluck('path'),
         filter((familly: HTMLElement[]) => familly && familly.length > 0),
         map((familly: HTMLElement[]) => familly.slice(0, this.chekNParents))
@@ -128,6 +132,7 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
     this.firstColor = this.color;
     this.firstSize = this.size;
     this.firstBorder = this.border;
+    this.firstOpacity = this.opacity;
   }
 
   private HoverInElement(item: any, i: number): void {
@@ -139,17 +144,19 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
       this.addClass('active');
     } else if (item.name === 'cursor-color') {
       this.color = item.value;
-      this.setStyles();
     } else if (item.name === 'cursor-border') {
       this.border = item.value;
-      this.setStyles();
+    } else if (item.name === 'cursor-opacity') {
+      this.opacity = item.value;
     } else if (item.name === 'cursor-size') {
       this.size = item.value;
-      this.setStyles();
     } else {
+      this.opacity = 1;
       this.addClass('active');
       this.customTxtStyles(this.words[i]);
     }
+
+    this.setStyles();
   }
 
   private addClass(className: string): void {
@@ -160,6 +167,7 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
     this.color = this.firstColor;
     this.border = this.firstBorder;
     this.size = this.firstSize;
+    this.opacity = this.firstOpacity;
     this.ngxCursor.nativeElement.classList.remove('active');
     this.ngxCursorEl.nativeElement.innerHTML = '';
     this.setStyles();

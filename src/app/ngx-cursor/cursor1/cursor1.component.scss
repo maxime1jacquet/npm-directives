@@ -1,0 +1,9 @@
+.listlink {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  a {
+    padding: 5px 0;
+    margin: 10px 0;
+  }
+}

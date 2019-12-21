@@ -1,0 +1,33 @@
+<ngx-cursor
+  [cursor]="false"
+  [zindex]="1000"
+  color="#3f51b5"
+  [selectors]="['plus', 'view', 'stop', 'read', 'lorem', 'logo']"
+  [words]="[
+    'more',
+    'voir plus',
+    'STOP',
+    'Lire',
+    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione laudantium laborum nihil vel libero ipsam ducimus, tenetur at labore quae.',
+    'logo'
+  ]"
+></ngx-cursor>
+
+<div class="text">
+  <a
+    class="lien1"
+    href="http://google.com"
+    cursor-opacity="1"
+    cursor-size="40px"
+    >hover simple</a
+  >
+  <br /><br />
+  <a
+    class="lien2"
+    href="http://google.com"
+    cursor-read
+    cursor-size="40px"
+    cursor-color="#009688"
+    >Lire cet article</a
+  >
+</div>

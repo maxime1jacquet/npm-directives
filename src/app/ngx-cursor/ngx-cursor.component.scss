@@ -3,7 +3,7 @@
     margin: 20px 0;
   }
   a {
-    cursor: pointer;
+    // cursor: pointer;
   }
 
   &__listlink {
@@ -14,5 +14,12 @@
       padding: 5px 0;
       margin: 10px 0;
     }
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  div {
   }
 }
