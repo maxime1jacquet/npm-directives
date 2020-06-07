@@ -43,8 +43,8 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() words: string[] = [];
   @Input() zindex = 999;
 
-  @ViewChild('ngxCursor', { static: false }) ngxCursor: ElementRef;
-  @ViewChild('ngxCursorEl', { static: false }) ngxCursorEl: ElementRef;
+  @ViewChild('ngxCursor') ngxCursor: ElementRef;
+  @ViewChild('ngxCursorEl') ngxCursorEl: ElementRef;
 
   private componentDestroy$ = new Subject<boolean>();
   public merge$: Subscription;
