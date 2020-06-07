@@ -1,8 +1,8 @@
 {
   "name": "@yoozly/ngx-parallax",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "author": "Yoozly",
-  "description": "Use parallax effect with angular 7-8",
+  "description": "Use parallax effect with angular 8-9",
   "keywords": [
     "Angular",
     "Parallax",
@@ -13,11 +13,12 @@
     "angular parallax",
     "angular-parallax",
     "ngx-parallax",
+    "scroll effect",
     "ng-parallax"
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^7.0.0",
-    "@angular/core": "^7.0.0"
+    "@angular/common": "^9.1.9",
+    "@angular/core": "^9.1.9"
   }
 }

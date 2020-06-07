@@ -11,13 +11,13 @@ import { AppRoutingModule } from './app.routes';
 //
 import { NgxSimpleCountdownModule } from 'ngx-simple-countdown';
 import { NgxSimpleSliderModule } from 'ngx-simple-slider';
-import { NgxParallaxModule } from '@yoozly/ngx-parallax';
-// import { NgxCursorModule } from 'ngx-cursor';
+// import { NgxParallaxModule } from '@yoozly/ngx-parallax';
+import { NgxCursorModule } from 'ngx-cursor';
 //
 // import { NgxSimpleCountdownModule } from './../../projects/ngx-simple-countdown/src/lib/ngx-simple-countdown.module';
 // import { NgxSimpleSliderModule } from './../../projects/ngx-simple-slider/src/lib/ngx-simple-slider.module';
-// import { NgxParallaxModule } from './../../projects/ngx-parallax/src/lib/ngx-parallax.module';
-import { NgxCursorModule } from './../../projects/ngx-cursor/src/lib/ngx-cursor.module';
+import { NgxParallaxModule } from './../../projects/ngx-parallax/src/lib/ngx-parallax.module';
+// import { NgxCursorModule } from './../../projects/ngx-cursor/src/lib/ngx-cursor.module';
 import { Cursor1Component } from './ngx-cursor/cursor1/cursor1.component';
 import { Cursor2Component } from './ngx-cursor/cursor2/cursor2.component';
 

@@ -46,16 +46,16 @@ export class ParallaxDirective implements OnDestroy, AfterViewInit {
   private initParallax(): void {
     this.windowScroll$ = fromEvent(this.wr.nativeWindow, 'scroll').pipe(
       takeUntil(this.componentDestroy$),
-      filter(_ => this.wr.nativeWindow),
-      filter(_ => this.active),
-      map(_ => this.calculateCoef()),
+      filter((_) => this.wr.nativeWindow),
+      filter((_) => this.active),
+      map((_) => this.calculateCoef()),
       tap((coef: number) => this.renderParallax(coef))
     );
     this.windowResize$ = fromEvent(this.wr.nativeWindow, 'resize').pipe(
       takeUntil(this.componentDestroy$),
       debounceTime(500),
-      filter(_ => this.active),
-      map(_ => this.calculateCoef()),
+      filter((_) => this.active),
+      map((_) => this.calculateCoef()),
       tap((coef: number) => this.renderParallax(coef))
     );
   }
