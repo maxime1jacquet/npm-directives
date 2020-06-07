@@ -43,8 +43,8 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() words: string[] = [];
   @Input() zindex = 999;
 
-  @ViewChild('ngxCursor') ngxCursor: ElementRef;
-  @ViewChild('ngxCursorEl') ngxCursorEl: ElementRef;
+  @ViewChild('ngxCursor', { static: false }) ngxCursor: ElementRef;
+  @ViewChild('ngxCursorEl', { static: false }) ngxCursorEl: ElementRef;
 
   private componentDestroy$ = new Subject<boolean>();
   public merge$: Subscription;
@@ -105,11 +105,11 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
       );
 
       const applyStylesFromAttr$ = getElementsAttrs$.pipe(
-        tap(_ => this.removeClass()),
+        tap((_) => this.removeClass()),
         map((data: any) => data.flat()),
         filter((arrayAttr: any[]) => arrayAttr.length > 0),
         tap((arrayAttr: any[]) => {
-          arrayAttr.map(item => {
+          arrayAttr.map((item) => {
             if (item) {
               this.HoverInElement(item, this.customType().indexOf(item.name));
             }
@@ -208,7 +208,7 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   private customType(): string[] {
-    return this.selectors.map(selector => `cursor-${selector}`);
+    return this.selectors.map((selector) => `cursor-${selector}`);
   }
 
   private isCursor(iscursor: boolean): void {

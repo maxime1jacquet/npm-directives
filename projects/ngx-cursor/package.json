@@ -1,6 +1,6 @@
 {
   "name": "ngx-cursor",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": "Maxime Jacquet",
   "description": "A simple way to change cursor in Angular 7-8-9",
   "repository": {
@@ -18,7 +18,8 @@
     "cursor javascript",
     "ux cursor",
     "ngx-cursor",
-    "ng cursor"
+    "ng cursor",
+    "cursor pointer"
   ],
   "license": "MIT",
   "peerDependencies": {
