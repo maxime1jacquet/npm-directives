@@ -20,26 +20,30 @@ import { NgxParallaxModule } from './../../projects/ngx-parallax/src/lib/ngx-par
 // import { NgxCursorModule } from './../../projects/ngx-cursor/src/lib/ngx-cursor.module';
 import { Cursor1Component } from './ngx-cursor/cursor1/cursor1.component';
 import { Cursor2Component } from './ngx-cursor/cursor2/cursor2.component';
+import { NgxFieldErrorsComponent } from './ngx-field-errors/ngx-field-errors.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    SliderComponent,
-    CountdownComponent,
-    NgxParallaxComponent,
-    NgxCursorComponent,
-    Cursor1Component,
-    Cursor2Component
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    NgxSimpleCountdownModule,
-    NgxSimpleSliderModule,
-    NgxParallaxModule,
-    NgxCursorModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      SliderComponent,
+      CountdownComponent,
+      NgxParallaxComponent,
+      NgxCursorComponent,
+      Cursor1Component,
+      Cursor2Component,
+      NgxFieldErrorsComponent
+   ],
+   imports: [
+      BrowserModule,
+      AppRoutingModule,
+      NgxSimpleCountdownModule,
+      NgxSimpleSliderModule,
+      NgxParallaxModule,
+      NgxCursorModule
+   ],
+   providers: [],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule {}

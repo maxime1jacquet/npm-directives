@@ -7,11 +7,12 @@ import { NgxParallaxComponent } from './ngx-parallax/ngx-parallax.component';
 import { NgxCursorComponent } from './ngx-cursor/ngx-cursor.component';
 import { Cursor1Component } from './ngx-cursor/cursor1/cursor1.component';
 import { Cursor2Component } from './ngx-cursor/cursor2/cursor2.component';
+import { NgxFieldErrorsComponent } from './ngx-field-errors/ngx-field-errors.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'slider',
+    redirectTo: 'countdown',
     pathMatch: 'full'
   },
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'countdown',
     component: CountdownComponent
+  },
+  {
+    path: 'field-errors',
+    component: NgxFieldErrorsComponent
   },
   {
     path: 'parallax',

@@ -1,49 +1,56 @@
+/*
+  This is a "Solution Style" tsconfig.json file, and is used by editors and TypeScript’s language server to improve development experience.
+  It is not intended to be used to perform a compilation.
+
+  To learn more about this file see: https://angular.io/config/solution-tsconfig.
+*/
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "baseUrl": "./",
-    "downlevelIteration": true,
-    "importHelpers": true,
-    "outDir": "./dist/out-tsc",
-    "sourceMap": true,
-    "declaration": false,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "lib": [
-      "es2018",
-      "dom"
-    ],
-    "paths": {
-      "ngx-simple-countdown": [
-        "dist/ngx-simple-countdown"
-      ],
-      "ngx-simple-countdown/*": [
-        "dist/ngx-simple-countdown/*"
-      ],
-      "ngx-simple-slider": [
-        "dist/ngx-simple-slider"
-      ],
-      "ngx-simple-slider/*": [
-        "dist/ngx-simple-slider/*"
-      ],
-      "ngx-parallax": [
-        "dist/ngx-parallax"
-      ],
-      "ngx-parallax/*": [
-        "dist/ngx-parallax/*"
-      ],
-      "ngx-cursor": [
-        "dist/ngx-cursor"
-      ],
-      "ngx-cursor/*": [
-        "dist/ngx-cursor/*"
-      ]
+  "files": [],
+  "references": [
+    {
+      "path": "./src/tsconfig.app.json"
+    },
+    {
+      "path": "./src/tsconfig.spec.json"
+    },
+    {
+      "path": "./e2e/tsconfig.e2e.json"
+    },
+    {
+      "path": "./projects/ngx-simple-countdown/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ngx-simple-countdown/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ngx-simple-slider/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ngx-simple-slider/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ngx-parallax/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ngx-parallax/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ngx-cursor/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ngx-cursor/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/field-errors/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/field-errors/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/ngx-field-errors/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/ngx-field-errors/tsconfig.spec.json"
     }
-  }
+  ]
 }
