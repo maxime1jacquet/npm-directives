@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
-import { NgxFieldErrorsComponent } from './ngx-field-errors.component';
-
-
+import { ControlErrorsDirective } from './form-errors-check.directive';
+import { MarkFormTouchedDirective } from './mark-all-as-touched.directive';
 
 @NgModule({
-  declarations: [NgxFieldErrorsComponent],
-  imports: [
-  ],
-  exports: [NgxFieldErrorsComponent]
+  declarations: [ControlErrorsDirective, MarkFormTouchedDirective],
+  imports: [],
+  exports: [ControlErrorsDirective, MarkFormTouchedDirective]
 })
-export class NgxFieldErrorsModule { }
+export class NgxFieldErrorsModule {}

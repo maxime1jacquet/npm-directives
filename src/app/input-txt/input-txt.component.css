@@ -1,0 +1,14 @@
+label {
+  width: 200px;
+  display: inline-block;
+}
+input {
+  width: 100%;
+}
+input.field-error {
+  border: 1px solid red;
+}
+
+.row {
+  padding: 5px 0;
+}

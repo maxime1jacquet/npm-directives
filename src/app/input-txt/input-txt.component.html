@@ -1,0 +1,9 @@
+<div [formGroup]="fg">
+  <label [for]="id">{{ label }}</label>
+  <input
+    [type]="type"
+    [id]="id"
+    [formControlName]="id"
+    [formError]="fg.get(id)"
+  />
+</div>
