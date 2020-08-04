@@ -9,25 +9,30 @@ import {
 } from '@angular/core';
 import { NgControl, FormGroup } from '@angular/forms';
 
-import { errorsMessages } from './messages/messages';
+import { ErrorMessageService } from './services/error-messages.service';
+
 @Directive({
-  selector: '[formError]'
+  selector: '[fieldError]'
 })
 export class NgxFieldErrorDirective implements OnInit, DoCheck {
-  @Input() formError: FormGroup;
+  @Input() fieldError: FormGroup;
+
   public errorContainer = this.renderer.createElement('div');
   public nativeElement: HTMLElement;
   public parentElement;
+  public errorsMessages: any;
 
   constructor(
     private elementRef: ElementRef,
     private control: NgControl,
-    private renderer: Renderer2
+    private renderer: Renderer2,
+    private errorMessageService: ErrorMessageService
   ) {}
 
   ngOnInit() {
     this.nativeElement = this.elementRef.nativeElement;
     this.parentElement = this.nativeElement.parentNode;
+    this.errorsMessages = this.errorMessageService.getMessages();
     this.createErrorContainer();
   }
 
@@ -62,9 +67,9 @@ export class NgxFieldErrorDirective implements OnInit, DoCheck {
   }
 
   private updateErrorsMessage(key: string): void {
-    let message = errorsMessages[key];
+    let message = this.errorsMessages[key];
     if (!message) {
-      message = errorsMessages.default;
+      message = this.errorsMessages.default;
     }
     this.renderer.setProperty(this.errorContainer, 'textContent', message);
   }

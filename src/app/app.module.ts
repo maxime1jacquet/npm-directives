@@ -8,13 +8,13 @@ import { AppRoutingModule } from './app.routes';
 import { NgxSimpleCountdownModule } from 'ngx-simple-countdown';
 import { NgxSimpleSliderModule } from 'ngx-simple-slider';
 import { NgxCursorModule } from 'ngx-cursor';
-// import { NgxParallaxModule } from '@yoozly/ngx-parallax';
+import { NgxParallaxModule } from '@yoozly/ngx-parallax';
 
 // directives
 // import { NgxSimpleCountdownModule } from './../../projects/ngx-simple-countdown/src/lib/ngx-simple-countdown.module';
 // import { NgxSimpleSliderModule } from './../../projects/ngx-simple-slider/src/lib/ngx-simple-slider.module';
-import { NgxParallaxModule } from './../../projects/ngx-parallax/src/lib/ngx-parallax.module';
 // import { NgxCursorModule } from './../../projects/ngx-cursor/src/lib/ngx-cursor.module';
+// import { NgxParallaxModule } from './../../projects/ngx-parallax/src/lib/ngx-parallax.module';
 import { NgxFieldErrorsModule } from './../../projects/ngx-field-errors/src/lib/ngx-field-errors.module';
 
 // component
@@ -27,6 +27,10 @@ import { Cursor1Component } from './ngx-cursor/cursor1/cursor1.component';
 import { Cursor2Component } from './ngx-cursor/cursor2/cursor2.component';
 import { NgxFieldErrorsComponent } from './ngx-field-errors/ngx-field-errors.component';
 import { InputTxtComponent } from './input-txt/input-txt.component';
+
+const customErrorMessage = {
+  required: 'ceci est un message requi custom'
+};
 
 @NgModule({
   declarations: [
@@ -49,7 +53,8 @@ import { InputTxtComponent } from './input-txt/input-txt.component';
     NgxSimpleSliderModule,
     NgxParallaxModule,
     NgxCursorModule,
-    NgxFieldErrorsModule
+    NgxFieldErrorsModule.forRoot(customErrorMessage, 'fr')
+    // NgxFieldErrorsModule.forRoot()
   ],
   providers: [],
   exports: [InputTxtComponent],

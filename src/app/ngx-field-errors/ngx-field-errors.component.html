@@ -56,7 +56,7 @@
             type="checkbox"
             id="field10"
             formControlName="field10"
-            [formError]="form.get('field10')"
+            [fieldError]="form.get('field10')"
           />
         </div>
 
@@ -70,7 +70,7 @@
               <input
                 type="checkbox"
                 [formControlName]="i"
-                [formError]="form.controls.field11"
+                [fieldError]="form.controls.field11"
               />
               {{ checkboxData[i].name }}
               <br />
