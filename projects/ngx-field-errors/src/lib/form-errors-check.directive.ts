@@ -7,32 +7,17 @@ import {
   Input,
   DoCheck
 } from '@angular/core';
-import { NgControl } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
+import { NgControl, FormGroup } from '@angular/forms';
 
+import { errorsMessages } from './messages/messages';
 @Directive({
   selector: '[formError]'
 })
-export class ControlErrorsDirective implements OnInit, DoCheck {
+export class NgxFieldErrorDirective implements OnInit, DoCheck {
   @Input() formError: FormGroup;
   public errorContainer = this.renderer.createElement('div');
   public nativeElement: HTMLElement;
   public parentElement;
-
-  private messages = {
-    required: 'Champ obligatoire',
-    email: 'Veuillez saisir un email valide',
-    siret: 'Veuillez saisir un siret valide',
-    minlength: "Ce champ n'est pas assez long",
-    maxlength: 'Ce champ est trop long',
-    min: 'Trop petit',
-    // max: 'Trop grand',
-    pattern: 'Le format ne correspond pas',
-    requiredTrue: 'Ce champ est requis',
-    samePasswords: 'Les mots de passe ne sont pas identiques',
-    zipcodeFr: 'Ce champs ne ressemble pas a un code postal',
-    default: 'Ce champ comporte un erreur'
-  };
 
   constructor(
     private elementRef: ElementRef,
@@ -43,14 +28,7 @@ export class ControlErrorsDirective implements OnInit, DoCheck {
   ngOnInit() {
     this.nativeElement = this.elementRef.nativeElement;
     this.parentElement = this.nativeElement.parentNode;
-
-    this.renderer.addClass(this.errorContainer, 'error-container');
-    this.renderer.setStyle(this.errorContainer, 'font-size', '12px');
-    this.renderer.setStyle(this.errorContainer, 'font-weight', '500');
-    this.renderer.setStyle(this.errorContainer, 'color', '#f44336');
-    this.renderer.setStyle(this.errorContainer, 'margin', '3px 0 0 0');
-
-    this.parentElement.appendChild(this.errorContainer);
+    this.createErrorContainer();
   }
 
   ngDoCheck(): void {
@@ -84,15 +62,24 @@ export class ControlErrorsDirective implements OnInit, DoCheck {
   }
 
   private updateErrorsMessage(key: string): void {
-    let message = this.messages[key];
+    let message = errorsMessages[key];
     if (!message) {
-      message = this.messages.default;
+      message = errorsMessages.default;
     }
     this.renderer.setProperty(this.errorContainer, 'textContent', message);
   }
 
   private removeErrorsMessage(): void {
     this.renderer.setProperty(this.errorContainer, 'textContent', '');
+  }
+
+  private createErrorContainer(): void {
+    this.renderer.addClass(this.errorContainer, 'error-container');
+    this.renderer.setStyle(this.errorContainer, 'font-size', '12px');
+    this.renderer.setStyle(this.errorContainer, 'font-weight', '500');
+    this.renderer.setStyle(this.errorContainer, 'color', '#f44336');
+    this.renderer.setStyle(this.errorContainer, 'margin', '3px 0 0 0');
+    this.parentElement.appendChild(this.errorContainer);
   }
 
   private addClass(): void {

@@ -59,6 +59,24 @@
             [formError]="form.get('field10')"
           />
         </div>
+
+        <!--  -->
+        <br />
+        <div>
+          <div formArrayName="field11" class="error-container">
+            <label
+              *ngFor="let order of checboxFormArray.controls; let i = index"
+            >
+              <input
+                type="checkbox"
+                [formControlName]="i"
+                [formError]="form.controls.field11"
+              />
+              {{ checkboxData[i].name }}
+              <br />
+            </label>
+          </div>
+        </div>
       </div>
 
       <!--  -->
