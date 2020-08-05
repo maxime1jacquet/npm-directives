@@ -1,3 +1,33 @@
+@import '~@angular/material/theming';
+// @import 'settings/variables';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$salti-app-primary: mat-palette($mat-blue-gray);
+$salti-app-accent: mat-palette($mat-amber, A400, A500, A600);
+
+// The warn palette is optional (defaults to red).
+$salti-app-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$salti-app-theme: mat-light-theme(
+  $salti-app-primary,
+  $salti-app-accent,
+  $salti-app-warn
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($salti-app-theme);
+
 .main {
   max-width: 1000px;
   margin: 0 auto;

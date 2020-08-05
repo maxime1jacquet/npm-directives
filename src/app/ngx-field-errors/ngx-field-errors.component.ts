@@ -27,10 +27,10 @@ export class NgxFieldErrorsComponent implements OnInit {
     { id: 4, name: 'order 4' }
   ];
 
-  constructor(private fg: FormBuilder) {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
-    this.form = this.fg.group({
+    this.form = this.fb.group({
       field1: [''],
       field2: ['', Validators.required],
       field3: ['', [Validators.required, Validators.minLength(5)]],
@@ -40,7 +40,7 @@ export class NgxFieldErrorsComponent implements OnInit {
       field7: ['', [Validators.required, Validators.max(12)]],
       field8: ['', [Validators.required, Validators.min(12)]],
       field9: ['', [Validators.required]],
-      field10: [false, [Validators.required, Validators.requiredTrue]],
+      field10: [false, [Validators.requiredTrue]],
       field11: new FormArray([], ngxFieldMinCheckbox(3)),
       field12: ['', [Validators.required]],
       field13: ['', [Validators.required]],
@@ -48,6 +48,7 @@ export class NgxFieldErrorsComponent implements OnInit {
       field15: ['', [Validators.required]]
     });
 
+    // this.form.valueChanges.subscribe((item) => console.log(this.form));
     this.addCheckboxes();
   }
 

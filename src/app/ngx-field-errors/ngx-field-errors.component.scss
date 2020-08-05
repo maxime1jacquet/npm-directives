@@ -17,9 +17,11 @@
     display: flex;
     transform: translateX(-10px);
     width: calc(100% + 20px);
+    flex-wrap: wrap;
   }
   .item {
-    width: 25%;
+    // width: calc(25%);
+    flex-basis: 23%;
     margin: 0 10px;
   }
 

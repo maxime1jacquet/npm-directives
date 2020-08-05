@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app.routes';
+
+import { MaterialModule } from './material.module';
 
 //
 // directives in npm
@@ -29,7 +32,7 @@ import { NgxFieldErrorsComponent } from './ngx-field-errors/ngx-field-errors.com
 import { InputTxtComponent } from './input-txt/input-txt.component';
 
 const customErrorMessage = {
-  required: 'ceci est un message requi custom'
+  pattern: 'Erreur custom qui indique que le pattern est incorrecte'
 };
 
 @NgModule({
@@ -45,6 +48,7 @@ const customErrorMessage = {
     InputTxtComponent
   ],
   imports: [
+    BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserModule,
@@ -53,6 +57,7 @@ const customErrorMessage = {
     NgxSimpleSliderModule,
     NgxParallaxModule,
     NgxCursorModule,
+    MaterialModule,
     NgxFieldErrorsModule.forRoot(customErrorMessage, 'fr')
     // NgxFieldErrorsModule.forRoot()
   ],
