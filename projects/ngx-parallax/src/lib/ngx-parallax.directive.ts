@@ -6,8 +6,8 @@ import {
   OnDestroy,
   AfterViewInit
 } from '@angular/core';
-import { fromEvent, Observable, Subject } from 'rxjs';
-import { tap, takeUntil, filter, map, debounceTime } from 'rxjs/operators';
+import { fromEvent, Observable, of, Subject } from 'rxjs';
+import { takeUntil, filter, map, debounceTime, mergeMap } from 'rxjs/operators';
 
 import { BrowserWindowRef } from './services/windowref.service';
 import { ifVisible } from './utils/visible.util';
@@ -20,8 +20,8 @@ export class ParallaxDirective implements OnDestroy, AfterViewInit {
   @Input() axe = 'y';
   @Input() property = 'transform';
   @Input() propertyValue = 'translate3d';
-  @Input() active = true;
 
+  private active = true;
   private element: HTMLElement;
   private initialPosition: number;
   private componentDestroy$ = new Subject<boolean>();
@@ -39,33 +39,49 @@ export class ParallaxDirective implements OnDestroy, AfterViewInit {
 
     if (this.element && this.wr.nativeWindow) {
       this.initParallax();
-      ifVisible(this, this.element, 0, this.startParallax);
+      ifVisible(
+        this,
+        this.element,
+        0,
+        this.startParallax,
+        this.destroyParallax
+      );
     }
   }
 
   private initParallax(): void {
-    this.windowScroll$ = fromEvent(this.wr.nativeWindow, 'scroll').pipe(
+    const parallax$ = of('').pipe(
       takeUntil(this.componentDestroy$),
-      filter((_) => this.wr.nativeWindow),
-      filter((_) => this.active),
-      map((_) => this.calculateCoef()),
-      tap((coef: number) => this.renderParallax(coef))
+      filter(() => this.active),
+      map(() => {
+        const coef = this.calculateCoef();
+        this.renderParallax(coef);
+        return coef;
+      })
     );
+
+    this.windowScroll$ = fromEvent(this.wr.nativeWindow, 'scroll').pipe(
+      mergeMap(() => parallax$)
+    );
+
     this.windowResize$ = fromEvent(this.wr.nativeWindow, 'resize').pipe(
-      takeUntil(this.componentDestroy$),
       debounceTime(500),
-      filter((_) => this.active),
-      map((_) => this.calculateCoef()),
-      tap((coef: number) => this.renderParallax(coef))
+      mergeMap(() => parallax$)
     );
   }
 
   private startParallax(): void {
+    this.active = true;
+
     if (this.wr.nativeWindow && this.initialPosition === undefined) {
       this.initialPosition = this.wr.nativeWindow.pageYOffset;
       this.windowScroll$.subscribe();
       this.windowResize$.subscribe();
     }
+  }
+
+  private destroyParallax(): void {
+    this.active = false;
   }
 
   private calculateCoef(): number {

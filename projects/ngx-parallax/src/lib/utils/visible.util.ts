@@ -2,13 +2,17 @@ export function ifVisible(
   thisClass,
   element: HTMLElement,
   pourcent: number,
-  callbackIf
+  callbackIf,
+  destroyIf
 ) {
   new IntersectionObserver(
-    entries => {
+    (entries) => {
       if (entries[0].isIntersecting === true) {
         const callIf = callbackIf.bind(thisClass);
         callIf();
+      } else {
+        const destroy = destroyIf.bind(thisClass);
+        destroy();
       }
     },
     { threshold: [pourcent / 100] }
