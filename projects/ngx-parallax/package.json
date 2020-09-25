@@ -1,8 +1,8 @@
 {
   "name": "@yoozly/ngx-parallax",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Yoozly",
-  "description": "Use parallax effect with angular 8-9",
+  "description": "Use parallax effect with angular 9-10",
   "keywords": [
     "Angular",
     "Parallax",
