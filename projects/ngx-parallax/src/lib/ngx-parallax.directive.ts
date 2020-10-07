@@ -10,7 +10,6 @@ import { fromEvent, Observable, of, Subject } from 'rxjs';
 import { takeUntil, filter, map, debounceTime, mergeMap } from 'rxjs/operators';
 
 import { BrowserWindowRef } from './services/windowref.service';
-import { ifVisible } from './utils/visible.util';
 
 @Directive({
   selector: '[ngx-parallax]'
@@ -20,8 +19,10 @@ export class ParallaxDirective implements OnDestroy, AfterViewInit {
   @Input() axe = 'y';
   @Input() property = 'transform';
   @Input() propertyValue = 'translate3d';
+  @Input() active = true;
 
-  private active = true;
+  private inViewport = true;
+  private observer: IntersectionObserver;
   private element: HTMLElement;
   private initialPosition: number;
   private componentDestroy$ = new Subject<boolean>();
@@ -37,22 +38,18 @@ export class ParallaxDirective implements OnDestroy, AfterViewInit {
   ngAfterViewInit() {
     this.element = this.hostElement.nativeElement;
 
-    if (this.element && this.wr.nativeWindow) {
+    if (this.element && this.wr.nativeWindow && !this.observer) {
       this.initParallax();
-      ifVisible(
-        this,
-        this.element,
-        0,
-        this.startParallax,
-        this.destroyParallax
-      );
     }
   }
 
   private initParallax(): void {
+    this.observer = this.createObserver(0);
+    this.observer.observe(this.element);
+
     const parallax$ = of('').pipe(
       takeUntil(this.componentDestroy$),
-      filter(() => this.active),
+      filter(() => this.active && this.inViewport),
       map(() => {
         const coef = this.calculateCoef();
         this.renderParallax(coef);
@@ -71,7 +68,7 @@ export class ParallaxDirective implements OnDestroy, AfterViewInit {
   }
 
   private startParallax(): void {
-    this.active = true;
+    this.inViewport = true;
 
     if (this.wr.nativeWindow && this.initialPosition === undefined) {
       this.initialPosition = this.wr.nativeWindow.pageYOffset;
@@ -81,7 +78,7 @@ export class ParallaxDirective implements OnDestroy, AfterViewInit {
   }
 
   private destroyParallax(): void {
-    this.active = false;
+    this.inViewport = false;
   }
 
   private calculateCoef(): number {
@@ -137,7 +134,28 @@ export class ParallaxDirective implements OnDestroy, AfterViewInit {
     return `${axe[0]}px, ${axe[1]}px, ${axe[2]}px`;
   }
 
+  private createObserver(pourcent: number) {
+    const options = {
+      rootMargin: '0px',
+      threshold: pourcent / 100
+    };
+
+    const isIntersecting = (entry: IntersectionObserverEntry) =>
+      entry.isIntersecting || entry.intersectionRatio > 0;
+
+    return new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (isIntersecting(entry)) {
+          this.startParallax();
+        } else {
+          this.destroyParallax();
+        }
+      });
+    }, options);
+  }
+
   ngOnDestroy() {
+    this.observer.disconnect();
     this.componentDestroy$.next();
     this.componentDestroy$.complete();
   }

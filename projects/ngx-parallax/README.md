@@ -1,6 +1,6 @@
 # Angular Parallax
 
-Simple way to use parallax in angular 8
+Simple way to use parallax in angular 9-10
 
 ## 1- Install ngx-parallax package
 
@@ -52,9 +52,9 @@ export class AppModule {}
 
 ## Parameters to custom our directive
 
-```html
-<!-- rotate on scroll -->
+**Change transform properties**
 
+```html
 <div class="image">
   <img
     src="./some-image.jpg"
@@ -67,9 +67,9 @@ export class AppModule {}
 </div>
 ```
 
-```html
-<!-- FadeIn on scroll -->
+**Change CSS properties**
 
+```html
 <div class="image">
   <img
     src="./some-image.jpg"
@@ -81,10 +81,22 @@ export class AppModule {}
 </div>
 ```
 
-```html
-<!-- Negative number or active property-->
+**Negative number**
 
-<div class="image" ngx-parallax [speed]="-70" [active]="false">
+```html
+<div class="image" ngx-parallax [speed]="-70">
+  <img src="assets/1.jpg" alt="" />
+</div>
+```
+
+**Stop reactively parralax**
+
+```html
+<div class="image" ngx-parallax [active]="false">
+  <img src="assets/1.jpg" alt="" />
+</div>
+
+<div class="image" ngx-parallax [active]="boolean$ | async">
   <img src="assets/1.jpg" alt="" />
 </div>
 ```
