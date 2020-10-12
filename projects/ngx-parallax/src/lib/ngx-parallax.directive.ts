@@ -155,8 +155,10 @@ export class ParallaxDirective implements OnDestroy, AfterViewInit {
   }
 
   ngOnDestroy() {
-    this.observer.disconnect();
     this.componentDestroy$.next();
     this.componentDestroy$.complete();
+    if (this.wr.nativeWindow) {
+      this.observer.disconnect();
+    }
   }
 }
