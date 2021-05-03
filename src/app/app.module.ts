@@ -8,13 +8,13 @@ import { MaterialModule } from './material.module';
 
 //
 // directives in npm
-// import { NgxSimpleCountdownModule } from 'ngx-simple-countdown';
+import { NgxSimpleCountdownModule } from 'ngx-simple-countdown';
 import { NgxSimpleSliderModule } from 'ngx-simple-slider';
 import { NgxCursorModule } from 'ngx-cursor';
 // import { NgxParallaxModule } from '@yoozly/ngx-parallax';
 
 // directives
-import { NgxSimpleCountdownModule } from './../../projects/ngx-simple-countdown/src/lib/ngx-simple-countdown.module';
+// import { NgxSimpleCountdownModule } from './../../projects/ngx-simple-countdown/src/lib/ngx-simple-countdown.module';
 // import { NgxSimpleSliderModule } from './../../projects/ngx-simple-slider/src/lib/ngx-simple-slider.module';
 // import { NgxCursorModule } from './../../projects/ngx-cursor/src/lib/ngx-cursor.module';
 import { NgxParallaxModule } from './../../projects/ngx-parallax/src/lib/ngx-parallax.module';

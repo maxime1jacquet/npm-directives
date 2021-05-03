@@ -23,7 +23,7 @@
     "@angular/router": "~11.2.12",
     "core-js": "^2.5.4",
     "ngx-cursor": "^0.1.0",
-    "ngx-simple-countdown": "^0.1.4",
+    "ngx-simple-countdown": "^1.2.0",
     "ngx-simple-slider": "^0.1.4",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",

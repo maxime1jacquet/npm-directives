@@ -1,6 +1,6 @@
 {
   "name": "ngx-simple-countdown",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Maxime Jacquet",
   "description": "The most simple way to display a countdown in angular 9",
   "repository": {
@@ -10,9 +10,9 @@
   "homepage": "https://maximejacquet.fr",
   "keywords": [
     "Angular",
+    "Angular 11",
+    "Angular 10",
     "Angular 9",
-    "Angular 8",
-    "Angular 7",
     "Angular 2+",
     "Directive",
     "Countdown",

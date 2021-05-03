@@ -95,4 +95,4 @@ you can add somes styles in your element
 
 # And that's it, Enjoy !
 
-Question ? **[contact me](https://twitter.com/maxime1jacquet)**
+Questions ? **[contact me](https://twitter.com/maxime1jacquet)**
