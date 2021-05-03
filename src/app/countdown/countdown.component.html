@@ -1,17 +1,16 @@
 <section class="countdown">
   <h1 class="title">Simple Countdown</h1>
   <div class="countdown__exemple">
-    <div simpleCountdown [dateTo]="1697651420"></div>
+    <!-- 1620070620 -->
+    <!-- <div simpleTimeago [date]="1620068100"></div> -->
+    <div simpleCountdown [dateTo]="1697651420" (finish)="onfinish()"></div>
     <div class="source-code">
       {{ code0 }}
     </div>
   </div>
 
-  <h1 class="title">
-    Countdown with custom styles and different language
-  </h1>
+  <h1 class="title">Countdown with custom styles and different language</h1>
   <div class="countdown__exemple">
-    <!-- hideUnit="d" -->
     <div
       simpleCountdown
       [dateTo]="1697651420"
@@ -62,6 +61,7 @@
   <div class="countdown__exemple">
     <div
       simpleCountdown
+      (finish)="onfinish()"
       [dateTo]="181242400"
       [endMessage]="'my custom end message'"
       [styles]="
@@ -81,4 +81,19 @@
       {{ code2 }}
     </div>
   </div>
+
+  <hr />
+
+  <h1 class="title">Simple Timeago<span>new</span></h1>
+  <div class="countdown__exemple">
+    <div simpleTimeago [date]="1620073120"></div>
+    <div simpleTimeago [date]="1620073120" language="fr"></div>
+    <div simpleTimeago [date]="1620073120" language="es"></div>
+  </div>
+  <!-- <div class="countdown__exemple">
+    <div simpleTimeago [date]="1620051170"></div>
+  </div>
+  <div class="countdown__exemple">
+    <div simpleTimeago [date]="1610051170"></div>
+  </div> -->
 </section>

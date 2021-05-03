@@ -155,3 +155,14 @@ body {
   color: #303f9f;
   text-decoration: underline;
 }
+.title span {
+  font-size: 11px;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 3px 10px;
+  background-color: #ff5741;
+  text-decoration: none;
+  transform: translateY(-10px);
+  position: absolute;
+}

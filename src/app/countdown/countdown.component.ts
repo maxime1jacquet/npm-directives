@@ -31,6 +31,7 @@ export class CountdownComponent implements OnInit {
   public code2: string = `
     <div
       simpleCountdown
+      (finish)="onfinish()"
       [dateTo]="181242400"
       [endMessage]="'my custom end message'"
       [styles]="
@@ -66,4 +67,6 @@ export class CountdownComponent implements OnInit {
   ></div>`;
 
   ngOnInit() {}
+
+  public onfinish() {}
 }

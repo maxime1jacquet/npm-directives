@@ -1,6 +1,6 @@
 # Angular Simple Countdown (ngx-simple-countdown)
 
-The most simple way to display a countdown in angular 7
+The most simple way to display a countdown in angular 10-11
 
 # Getting Started
 
@@ -61,18 +61,20 @@ export class AppModule {}
     padding: 10px 4px;
     font-weight: bold;
   '"
+  (finish)="onfinish()"
 ></div>
 ```
 
 ## Parameters Docs
 
-| Name parameter | default value                                                                       | custom value                                                                                         |
-| -------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| language       | en                                                                                  | en/English - fr/Francais - pl/Polski - de/Deutschland - es/España - pt/Portugal - cs/Česká republika |
-| endMessage     | "countdown finish"                                                                  | custom the end message (or empty message)                                                            |
-| reactive       | true                                                                                | false (remove seconds and minutes)                                                                   |
-| styles         | "font-size:20px;color:#FFF;background-color:#000;padding:10px 5px;font-weight:bold" | remplace my default                                                                                  |
-| hideUnit       | ""                                                                                  | 'smhd' : to not display one or multiple unit                                                         |
+| type   | Name parameter | default value                                                                       | custom value                                                                                         |
+| ------ | -------------- | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| input  | language       | en                                                                                  | en/English - fr/Francais - pl/Polski - de/Deutschland - es/España - pt/Portugal - cs/Česká republika |
+| input  | endMessage     | "countdown finish"                                                                  | custom the end message (or empty message)                                                            |
+| input  | reactive       | true                                                                                | false (remove seconds and minutes)                                                                   |
+| input  | styles         | "font-size:20px;color:#FFF;background-color:#000;padding:10px 5px;font-weight:bold" | remplace my default                                                                                  |
+| input  | hideUnit       | ""                                                                                  | 'smhd' : to not display one or multiple unit                                                         |
+| output | finish         | x                                                                                   | callback when the countdown was finish                                                               |
 
 **if your language is not supported please [contact me](https://twitter.com/maxime1jacquet)**
 
@@ -93,4 +95,4 @@ you can add somes styles in your element
 
 # And that's it, Enjoy !
 
-Please, show me your work : **[contact me](https://twitter.com/maxime1jacquet)**
+Question ? **[contact me](https://twitter.com/maxime1jacquet)**
