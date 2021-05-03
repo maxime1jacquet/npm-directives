@@ -142,7 +142,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/ngx-simple-countdown/tsconfig.lib.json",
             "project": "projects/ngx-simple-countdown/ng-package.json"
@@ -182,7 +182,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/ngx-simple-slider/tsconfig.lib.json",
             "project": "projects/ngx-simple-slider/ng-package.json"
@@ -222,7 +222,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/ngx-parallax/tsconfig.lib.json",
             "project": "projects/ngx-parallax/ng-package.json"
@@ -262,7 +262,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/ngx-cursor/tsconfig.lib.json",
             "project": "projects/ngx-cursor/ng-package.json"
@@ -302,7 +302,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/field-errors/tsconfig.lib.json",
             "project": "projects/field-errors/ng-package.json"
@@ -342,7 +342,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
+          "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
             "tsConfig": "projects/ngx-field-errors/tsconfig.lib.json",
             "project": "projects/ngx-field-errors/ng-package.json"
