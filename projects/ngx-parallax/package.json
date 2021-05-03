@@ -1,6 +1,6 @@
 {
   "name": "@yoozly/ngx-parallax",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": "Yoozly",
   "description": "Use parallax effect with angular 9-10",
   "keywords": [
@@ -14,7 +14,8 @@
     "angular-parallax",
     "ngx-parallax",
     "scroll effect",
-    "ng-parallax"
+    "ng-parallax",
+    "parallax ssr"
   ],
   "license": "MIT",
   "peerDependencies": {
