@@ -68,6 +68,15 @@ export const getLanguage = (language: string): CountdownKeywords => {
       hours: 'g',
       day: 'd'
     };
+  } else if (language === 'ge') {
+    return {
+      timeago: 'დასრულდა',
+      now: 'დროა',
+      seconds: 'წმ',
+      minutes: 'წთ',
+      hours: 'სთ',
+      day: 'დღე'
+    };
   } else {
     return {
       timeago: 'there is',
