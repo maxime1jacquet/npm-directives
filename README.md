@@ -12,3 +12,9 @@
 ```
 ng generate library my-lib
 ```
+
+## 3 - Deploy
+
+nx build [lib] --prod
+npm login
+npm publish (--access=public) for yoozly package
