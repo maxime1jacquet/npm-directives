@@ -53,7 +53,6 @@ export class AppModule {}
   [language]="'fr'"
   [endMessage]="'custom end message'"
   [reactive]="false"
-  [hideUnit]="'ds"
   [styles]="'
     font-size: 20px;
     color: red;
