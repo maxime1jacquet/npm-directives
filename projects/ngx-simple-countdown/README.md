@@ -72,8 +72,7 @@ export class AppModule {}
 | input  | language       | en                                                                                  | en/English - fr/Francais - pl/Polski - de/Deutschland - es/España - pt/Portugal - cs/Česká republika - ge/Georgian |
 | input  | endMessage     | "countdown finish"                                                                  | custom the end message (or empty message)                                                                          |
 | input  | reactive       | true                                                                                | false (remove seconds and minutes)                                                                                 |
-| input  | styles         | "font-size:20px;color:#FFF;background-color:#000;padding:10px 5px;font-weight:bold" | remplace my default                                                                                                |
-| input  | hideUnit       | ""                                                                                  | 'smhd' : to not display one or multiple unit                                                                       |
+| input  | styles         | "font-size:20px;color:#FFF;background-color:#000;padding:10px 5px;font-weight:bold" | remplace my default |                                                                                                                                                       
 | output | finish         | x                                                                                   | callback when the countdown was finish                                                                             |
 
 **if your language is not supported please [contact me](https://twitter.com/maxime1jacquet)**
