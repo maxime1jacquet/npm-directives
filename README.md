@@ -15,6 +15,16 @@ ng generate library my-lib
 
 ## 3 - Deploy
 
-nx build [lib] --prod
-npm login
-npm publish (--access=public) for yoozly package
+- nx build [lib] --configuration=production
+- update package.json and readme.md
+- npm login
+
+```
+login : maxime1jacquet (or maximejacquet)
+pass : \*
+email : \*
+mfa : use code by email
+```
+
+- cd dist/[lib]
+- npm publish (--access=public) for yoozly package

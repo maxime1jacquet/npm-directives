@@ -1,6 +1,6 @@
 # Angular Parallax
 
-Simple way to use parallax in angular 9-10
+Simple way to use parallax with Angular 12-13 (with universal)
 
 ## 1- Install ngx-parallax package
 

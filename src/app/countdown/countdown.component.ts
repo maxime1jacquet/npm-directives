@@ -8,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class CountdownComponent implements OnInit {
   constructor() {}
 
-  public code0 = `<div simpleCountdown [dateTo]="1981242400"></div>`;
+  public code0 = `<div simpleCountdown [dateTo]="1757651420"></div>`;
 
   public code1 = `
     <div
       simpleCountdown
-      [dateTo]="1981242400"
+      [dateTo]="1757651420"
       [language]="'fr'"
       [styles]="
         '
@@ -32,7 +32,7 @@ export class CountdownComponent implements OnInit {
     <div
       simpleCountdown
       (finish)="onfinish()"
-      [dateTo]="181242400"
+      [dateTo]="1757651420"
       [endMessage]="'my custom end message'"
       [styles]="
         '
@@ -50,7 +50,7 @@ export class CountdownComponent implements OnInit {
   public code3 = `
   <div
     simpleCountdown
-    [dateTo]="1681242400"
+    [dateTo]="1757651420"
     [reactive]="false"
     [styles]="
       '
@@ -66,7 +66,8 @@ export class CountdownComponent implements OnInit {
     "
   ></div>`;
 
-  public code4 = `<div simpleTimeago [date]="1620073120"></div>`;
+  public code4 = `<div simpleTimeago [date]="1650893120"></div>`;
+  public code5 = `<div simpleTimeago [date]="1650893120" language="fr"></div>`;
 
   ngOnInit() {}
 

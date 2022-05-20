@@ -15,8 +15,7 @@ import {
   delay,
   filter,
   takeUntil,
-  throttleTime,
-  debounceTime
+  throttleTime
 } from 'rxjs/operators';
 import { BrowserWindowRef } from '../services/windowref.service';
 import * as polyfills from '../polyfills/path';
@@ -216,7 +215,7 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
       if (iscursor) {
         this.wr.nativeWindow.document.body.style.setProperty(
           '--ngx-cursor',
-          'auto'
+          'inherit'
         );
       } else {
         this.wr.nativeWindow.document.body.style.setProperty(

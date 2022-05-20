@@ -1,10 +1,13 @@
 {
   "name": "@yoozly/ngx-parallax",
-  "version": "0.3.0",
+  "version": "13.0.0",
   "author": "Yoozly",
-  "description": "Use parallax effect with angular 11-12",
+  "description": "Use parallax effect with Angular 12-13 (with universal)",
   "keywords": [
     "Angular",
+    "Angular 11",
+    "Angular 12",
+    "Angular 13",
     "Parallax",
     "Parrallax",
     "Parralax",
@@ -19,8 +22,8 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^9.1.9",
-    "@angular/core": "^9.1.9"
+    "@angular/common": "^13.3.0",
+    "@angular/core": "^13.3.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"

@@ -15,8 +15,13 @@ import { MaterialModule } from './material.module';
 
 // directives
 import { NgxSimpleCountdownModule } from './../../projects/ngx-simple-countdown/src/lib/ngx-simple-countdown.module';
+// import { NgxSimpleCountdownModule } from 'dist/ngx-simple-countdown';
 import { NgxParallaxModule } from './../../projects/ngx-parallax/src/lib/ngx-parallax.module';
+// import { NgxParallaxModule } from 'dist/ngx-parallax';
 import { NgxCursorModule } from './../../projects/ngx-cursor/src/lib/ngx-cursor.module';
+// import { NgxCursorModule } from 'dist/ngx-cursor';
+
+// in progress
 // import { NgxFieldErrorsModule } from './../../projects/ngx-field-errors/src/lib/ngx-field-errors.module';
 // import { NgxSimpleSliderModule } from './../../projects/ngx-simple-slider/src/lib/ngx-simple-slider.module';
 
