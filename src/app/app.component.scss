@@ -11,7 +11,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $salti-app-primary: mat-palette($mat-blue-gray);
-$salti-app-accent: mat-palette($mat-amber, A400, A500, A600);
+$salti-app-accent: mat-palette($mat-amber, 400, 500, 600);
 
 // The warn palette is optional (defaults to red).
 $salti-app-warn: mat-palette($mat-red);

@@ -1,9 +1,5 @@
 <div [formGroup]="fg">
   <label [for]="id">{{ label }}</label>
-  <input
-    [type]="type"
-    [id]="id"
-    [formControlName]="id"
-    [fieldError]="fg.get(id)"
-  />
+  <input [type]="type" [id]="id" [formControlName]="id" />
+  <!-- [fieldError]="fg.get(id)" -->
 </div>

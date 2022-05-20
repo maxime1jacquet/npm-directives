@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
+import { ModuleWithProviders, NgModule } from '@angular/core';
 import { NgxFieldErrorDirective } from './ngx-field-error.directive';
 import { MarkFormTouchedDirective } from './mark-all-as-touched.directive';
-import { ModuleWithProviders } from '@angular/compiler/src/core';
+// import { ModuleWithProviders } from '@angular/compiler/src/core';
 
 @NgModule({
   declarations: [NgxFieldErrorDirective, MarkFormTouchedDirective],
@@ -9,7 +9,7 @@ import { ModuleWithProviders } from '@angular/compiler/src/core';
   exports: [NgxFieldErrorDirective, MarkFormTouchedDirective]
 })
 export class NgxFieldErrorsModule {
-  static forRoot(config = {}, lang = 'en'): ModuleWithProviders {
+  static forRoot(config = {}, lang = 'en'): ModuleWithProviders<any> {
     return {
       ngModule: NgxFieldErrorsModule,
       providers: [

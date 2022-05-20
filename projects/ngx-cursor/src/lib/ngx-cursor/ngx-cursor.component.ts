@@ -244,7 +244,7 @@ export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.componentDestroy$.next();
+    this.componentDestroy$.next(false);
     this.componentDestroy$.complete();
     this.isCursor(true);
   }

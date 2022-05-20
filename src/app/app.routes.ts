@@ -23,10 +23,10 @@ const routes: Routes = [
     path: 'countdown',
     component: CountdownComponent
   },
-  {
-    path: 'field-errors',
-    component: NgxFieldErrorsComponent
-  },
+  // {
+  //   path: 'field-errors',
+  //   component: NgxFieldErrorsComponent
+  // },
   {
     path: 'parallax',
     component: NgxParallaxComponent
