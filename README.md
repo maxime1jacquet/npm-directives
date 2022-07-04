@@ -15,7 +15,7 @@ ng generate library my-lib
 
 ## 3 - Deploy
 
-- nx build [lib] --configuration=production
+- ng build [lib] --configuration=production
 - update package.json and readme.md
 - npm login
 

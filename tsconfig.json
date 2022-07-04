@@ -10,6 +10,7 @@
     "module": "es2020",
     "moduleResolution": "node",
     "experimentalDecorators": true,
+    "skipLibCheck": true,
     "target": "es2015",
     "typeRoots": [
       "node_modules/@types"
@@ -50,6 +51,10 @@
       "ngx-field-errors": [
         "dist/ngx-field-errors/ngx-field-errors",
         "dist/ngx-field-errors"
+      ],
+      "ngx-wrapper-tiny-slider": [
+        "dist/ngx-wrapper-tiny-slider/ngx-wrapper-tiny-slider",
+        "dist/ngx-wrapper-tiny-slider"
       ]
     }
   }

@@ -1,0 +1,22 @@
+<ngx-wrapper-tiny-slider [config]="tinySliderConfig" #tinySlider>
+  <ng-container class="items">
+    <div class="item">
+      <img src="http://www.mattsorger.com/newsletterpics/gsw07_01.jpg" />
+    </div>
+
+    <div class="item">
+      <img src="http://www.mattsorger.com/newsletterpics/gsw07_02.jpg" />
+    </div>
+
+    <div class="item">
+      <img src="http://www.mattsorger.com/newsletterpics/gsw07_03.jpg" />
+    </div>
+
+    <div class="item">
+      <img src="http://www.mattsorger.com/newsletterpics/gsw07_05.jpg" />
+    </div>
+  </ng-container>
+</ngx-wrapper-tiny-slider>
+
+<button (click)="prev()">prev</button>
+<button (click)="next()">next</button>

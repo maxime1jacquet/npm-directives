@@ -8,6 +8,7 @@ import { NgxCursorComponent } from './ngx-cursor/ngx-cursor.component';
 import { Cursor1Component } from './ngx-cursor/cursor1/cursor1.component';
 import { Cursor2Component } from './ngx-cursor/cursor2/cursor2.component';
 import { NgxFieldErrorsComponent } from './ngx-field-errors/ngx-field-errors.component';
+import { WrapperTinySliderComponent } from './wrapper-tiny-slider/wrapper-tiny-slider.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'slider',
     component: SliderComponent
+  },
+  {
+    path: 'wrapper-tiny-slider',
+    component: WrapperTinySliderComponent
   },
   {
     path: 'countdown',

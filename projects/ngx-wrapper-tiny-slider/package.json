@@ -1,0 +1,38 @@
+{
+  "name": "ngx-wrapper-tiny-slider",
+  "version": "13.0.1",
+  "author": "Maxime Jacquet",
+  "description": "A simple Angular 13 wrapper for Tiny Slider",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maxime1jacquet/npm-directives"
+  },
+  "homepage": "https://maximejacquet.fr",
+  "keywords": [
+    "Angular",
+    "Angular 13",
+    "Angular 12",
+    "slider",
+    "simple slider",
+    "tiny slider",
+    "tiny slider wrapper",
+    "wrapper angular tiny slider",
+    "angular tiny slider",
+    "angular carousel",
+    "angular carousel tiny slider",
+    "carousel tiny slider"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "@angular/common": "^13.3.0",
+    "@angular/core": "^13.3.0",
+    "tiny-slider": "^2.9.4"
+  },
+  "dependencies": {
+    "tiny-slider": "^2.9.4",
+    "tslib": "^2.0.0"
+  },
+  "devDependencies": {
+    "tiny-slider": "^2.9.4"
+  }
+}

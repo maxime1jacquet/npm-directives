@@ -378,6 +378,46 @@
           }
         }
       }
+    },
+    "ngx-wrapper-tiny-slider": {
+      "projectType": "library",
+      "root": "projects/ngx-wrapper-tiny-slider",
+      "sourceRoot": "projects/ngx-wrapper-tiny-slider/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ngx-wrapper-tiny-slider/tsconfig.lib.json",
+            "project": "projects/ngx-wrapper-tiny-slider/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ngx-wrapper-tiny-slider/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ngx-wrapper-tiny-slider/src/test.ts",
+            "tsConfig": "projects/ngx-wrapper-tiny-slider/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-wrapper-tiny-slider/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ngx-wrapper-tiny-slider/tsconfig.lib.json",
+              "projects/ngx-wrapper-tiny-slider/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "NgxSimpleCountdownDirective"
