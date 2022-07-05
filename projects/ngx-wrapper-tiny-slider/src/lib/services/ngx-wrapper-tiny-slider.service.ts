@@ -1,8 +1,9 @@
 import { ElementRef, Injectable } from '@angular/core';
+import { from, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import {
   TinySliderInstance,
-  TinySliderSettings,
-  tns
+  TinySliderSettings
 } from 'tiny-slider/src/tiny-slider';
 
 @Injectable({
@@ -16,13 +17,22 @@ export class NgxWrapperTinySliderService {
   public initSlider(
     config: TinySliderSettings,
     elementRef: ElementRef
-  ): TinySliderInstance {
+  ): Observable<TinySliderInstance> {
     const extendConfig = Object.assign(
       { container: elementRef.nativeElement },
       config
     );
-    this.instance = tns(extendConfig);
-    return this.instance;
+
+    /**
+     * Import swiper here to support SSR
+     */
+    return from(import('tiny-slider/src/tiny-slider')).pipe(
+      map((item: any) => {
+        const tns = item.tns;
+        this.instance = tns(extendConfig);
+        return this.instance;
+      })
+    );
   }
 
   public getDefaultConfig() {

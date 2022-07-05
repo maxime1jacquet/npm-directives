@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 
 import { Subject } from 'rxjs';
-import { first, takeWhile } from 'rxjs/operators';
+import { first, take, takeWhile } from 'rxjs/operators';
 
 import { NgxWrapperTinySliderService } from '../services/ngx-wrapper-tiny-slider.service';
 import { NgxWrapperTinySliderInterface } from '../interfaces/ngx-tiny-slider-settings.interface';
@@ -61,10 +61,10 @@ export class NgxWrapperTinySliderComponent implements OnInit, OnDestroy {
   }
 
   public initSlider() {
-    this.sliderInstance = this.ngxWrapperTinySliderService.initSlider(
-      this.defaultConfig,
-      this.slideItemsContainerRef
-    );
+    this.ngxWrapperTinySliderService
+      .initSlider(this.defaultConfig, this.slideItemsContainerRef)
+      .pipe(take(1))
+      .subscribe((item) => (this.sliderInstance = item));
   }
 
   public goTo(target: number | 'next' | 'prev' | 'first' | 'last'): void {

@@ -22,8 +22,8 @@ import { NgxParallaxModule } from './../../projects/ngx-parallax/src/lib/ngx-par
 import { NgxCursorModule } from './../../projects/ngx-cursor/src/lib/ngx-cursor.module';
 // import { NgxCursorModule } from 'dist/ngx-cursor';
 
-import { NgxWrapperTinySliderModule } from './../../projects/ngx-wrapper-tiny-slider/src/lib/ngx-wrapper-tiny-slider.module';
-// import { NgxWrapperTinySliderModule } from 'dist/ngx-wrapper-tiny-slider';
+// import { NgxWrapperTinySliderModule } from './../../projects/ngx-wrapper-tiny-slider/src/lib/ngx-wrapper-tiny-slider.module';
+import { NgxWrapperTinySliderModule } from 'dist/ngx-wrapper-tiny-slider';
 // import { NgxWrapperTinySliderModule } from 'ngx-wrapper-tiny-slider';
 
 // in progress
