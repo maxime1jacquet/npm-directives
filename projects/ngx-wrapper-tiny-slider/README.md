@@ -88,12 +88,24 @@ export class AppComponent implements OnInit {
     // number | 'next' | 'prev' | 'first' | 'last'
     this.tinySlider.goTo('next');
   }
-  public otherMethods(): void {
-    this.tinySlider.updateSliderHeight();
-    this.tinySlider.play();
-    this.tinySlider.pause();
-    this.tinySlider.refresh();
-    // etc ...
-  }
 }
+```
+
+## Use the wrapper with \*ngFor
+
+First add this in tinySliderConfig
+
+```ts
+  public tinySliderConfig: NgxWrapperTinySliderInterface = {
+    ...
+    waitForDom: true; <----
+  };
+```
+
+then initialized the slider in your ngAfterViewInit
+
+```ts
+  ngAfterViewInit(): void {
+    this.tinySlider.initSlider();
+  }
 ```

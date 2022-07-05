@@ -39,9 +39,7 @@ export class NgxWrapperTinySliderComponent implements OnInit, OnDestroy {
       this.extendConfig();
     }
 
-    if (this.config.waitForDom) {
-      this.listenForDomReady();
-    } else {
+    if (!this.config.waitForDom) {
       this.initSlider();
     }
   }
@@ -56,22 +54,13 @@ export class NgxWrapperTinySliderComponent implements OnInit, OnDestroy {
     }
   }
 
-  private listenForDomReady() {
-    this.domReady
-      .pipe(
-        first(),
-        takeWhile(() => this.aliveObservable)
-      )
-      .subscribe(() => this.initSlider());
-  }
-
   private extendConfig() {
     Object.keys(this.config).forEach(
       (i) => (this.defaultConfig[i] = this.config[i])
     );
   }
 
-  private initSlider() {
+  public initSlider() {
     this.sliderInstance = this.ngxWrapperTinySliderService.initSlider(
       this.defaultConfig,
       this.slideItemsContainerRef
