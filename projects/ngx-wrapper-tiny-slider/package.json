@@ -1,6 +1,6 @@
 {
   "name": "ngx-wrapper-tiny-slider",
-  "version": "13.1.0",
+  "version": "13.1.1",
   "author": "Maxime Jacquet",
   "description": "A simple Angular 13 wrapper for Tiny Slider",
   "repository": {

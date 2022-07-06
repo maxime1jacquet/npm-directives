@@ -34,13 +34,4 @@ export class NgxWrapperTinySliderService {
       })
     );
   }
-
-  public getDefaultConfig() {
-    const defaultConfig: TinySliderSettings = {
-      items: 3,
-      mode: 'carousel',
-      speed: 400
-    };
-    return defaultConfig;
-  }
 }

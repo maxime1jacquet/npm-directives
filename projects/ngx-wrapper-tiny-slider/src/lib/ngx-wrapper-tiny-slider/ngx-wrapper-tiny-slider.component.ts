@@ -1,18 +1,23 @@
 import {
   Component,
+  Inject,
+  Injector,
   Input,
   OnDestroy,
   OnInit,
+  PLATFORM_ID,
   ViewChild,
   ViewEncapsulation
 } from '@angular/core';
 
 import { Subject } from 'rxjs';
-import { first, take, takeWhile } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
+import { TinySliderInstance, TinySliderSettings } from 'tiny-slider';
 
 import { NgxWrapperTinySliderService } from '../services/ngx-wrapper-tiny-slider.service';
 import { NgxWrapperTinySliderInterface } from '../interfaces/ngx-tiny-slider-settings.interface';
-import { TinySliderInstance } from 'tiny-slider';
+import { BrowserWindowRef } from '../services/windowref.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'ngx-wrapper-tiny-slider',
@@ -25,30 +30,40 @@ export class NgxWrapperTinySliderComponent implements OnInit, OnDestroy {
   @ViewChild('slideItems', { static: true }) slideItemsContainerRef;
 
   public sliderInstance: TinySliderInstance;
-  private aliveObservable = true;
 
   public domReady = new Subject();
-  private defaultConfig = this.ngxWrapperTinySliderService.getDefaultConfig();
+  private ngxWrapperTinySliderService!: NgxWrapperTinySliderService;
+  private defaultConfig: TinySliderSettings = {
+    items: 3,
+    mode: 'carousel',
+    speed: 400
+  };
 
   constructor(
-    private ngxWrapperTinySliderService: NgxWrapperTinySliderService
-  ) {}
+    private wr: BrowserWindowRef,
+    @Inject(PLATFORM_ID) private platformId: string,
+    private injector: Injector
+  ) {
+    if (isPlatformBrowser(this.platformId)) {
+      this.ngxWrapperTinySliderService = <NgxWrapperTinySliderService>(
+        this.injector.get(NgxWrapperTinySliderService)
+      );
+    }
+  }
 
   ngOnInit() {
-    if (this.config) {
-      this.extendConfig();
-    }
+    if (this.wr.nativeWindow) {
+      if (this.config) {
+        this.extendConfig();
+      }
 
-    if (!this.config.waitForDom) {
-      this.initSlider();
+      if (!this.config.waitForDom) {
+        this.initSlider();
+      }
     }
   }
 
   ngOnDestroy() {
-    if (this.config.waitForDom) {
-      this.aliveObservable = false;
-    }
-
     if (this.sliderInstance && this.sliderInstance.destroy) {
       this.sliderInstance.destroy();
     }
@@ -61,13 +76,18 @@ export class NgxWrapperTinySliderComponent implements OnInit, OnDestroy {
   }
 
   public initSlider() {
-    this.ngxWrapperTinySliderService
-      .initSlider(this.defaultConfig, this.slideItemsContainerRef)
-      .pipe(take(1))
-      .subscribe((item) => (this.sliderInstance = item));
+    if (this.wr.nativeWindow) {
+      this.ngxWrapperTinySliderService
+        .initSlider(this.defaultConfig, this.slideItemsContainerRef)
+        .pipe(take(1))
+        .subscribe((item) => (this.sliderInstance = item));
+    }
   }
 
   public goTo(target: number | 'next' | 'prev' | 'first' | 'last'): void {
-    this.sliderInstance.goTo(target);
+    if (this.wr.nativeWindow) {
+      this.sliderInstance.goTo(target);
+      // this.sliderInstance
+    }
   }
 }
