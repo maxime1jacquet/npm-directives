@@ -1,5 +1,5 @@
-<div class="slider-wrapper">
+<div class="slider-wrapper" [class.ready]="sliderReady$ | async">
   <div class="slide-items" #slideItems>
-    <ng-content select=".items"></ng-content>
+    <ng-content></ng-content>
   </div>
 </div>

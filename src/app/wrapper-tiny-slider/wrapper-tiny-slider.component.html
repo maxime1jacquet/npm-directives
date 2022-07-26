@@ -1,24 +1,31 @@
-<ngx-wrapper-tiny-slider [config]="tinySliderConfig" #tinySlider>
-  <ng-container class="items">
-    <ng-container *ngFor="let item of [0, 1, 2, 3, 4]">
-      <div class="item">
-        <img src="http://www.mattsorger.com/newsletterpics/gsw07_01.jpg" />
-      </div>
-    </ng-container>
-
-    <!-- <div class="item">
-      <img src="http://www.mattsorger.com/newsletterpics/gsw07_02.jpg" />
+<!-- <button (click)="discover()">click to create slider</button>
+  
+-->
+<div *ngIf="imageArr$ | async as imageArr">
+  <ngx-wrapper-tiny-slider
+    [config]="tinySliderConfig"
+    [initManually]="false"
+    #tinySlider
+  >
+    <div class="item" *ngFor="let imageUrl of imageArr">
+      <img [src]="imageUrl" />
     </div>
+  </ngx-wrapper-tiny-slider>
 
-    <div class="item">
-      <img src="http://www.mattsorger.com/newsletterpics/gsw07_03.jpg" />
-    </div>
+  <button (click)="prev()">prev</button>
+  <button (click)="next()">next</button>
+</div>
+<hr />
 
-    <div class="item">
-      <img src="http://www.mattsorger.com/newsletterpics/gsw07_05.jpg" />
-    </div> -->
-  </ng-container>
+<ngx-wrapper-tiny-slider
+  [config]="tinySliderConfig2"
+  [initManually]="false"
+  #tinySlider2
+>
+  <div class="item" *ngFor="let imageUrl of imageArr2">
+    <img [src]="imageUrl" />
+  </div>
 </ngx-wrapper-tiny-slider>
 
-<button (click)="prev()">prev</button>
-<button (click)="next()">next</button>
+<button (click)="pause()">pause</button>
+<button (click)="play()">play</button>

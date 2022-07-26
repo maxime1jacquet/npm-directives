@@ -1,4 +1,4 @@
-# Angular Wrapper for Tiny Slider (SSR !) (ngx-wrapper-tiny-slider)
+# Angular Wrapper for Tiny Slider (SSR !)
 
 A simple angular wrapper for [tiny slider](https://www.npmjs.com/package/tiny-slider). This project is a copy of [this package](https://www.npmjs.com/package/ngx-tiny-slider) because i need this wrapper up to date, and support SSR.
 
@@ -43,66 +43,61 @@ export class AppModule {}
 ##### app.component.html
 
 ```html
-<ngx-wrapper-tiny-slider [config]="tinySliderConfig" #tinySlider>
-  <ng-container class="items">
-    <div class="item">
-      <img src="https://picsum.photos/250/300" />
-    </div>
-    <div class="item">
-      <img src="https://picsum.photos/200/300" />
-    </div>
-    <div class="item">
-      <img src="https://picsum.photos/250/350" />
-    </div>
-  </ng-container>
+<ngx-wrapper-tiny-slider #tinySlider [config]="tinySliderConfig">
+  <div class="item">
+    <img src="https://picsum.photos/250/300" />
+  </div>
+  <div class="item">
+    <img src="https://picsum.photos/200/300" />
+  </div>
+  <div class="item">
+    <img src="https://picsum.photos/250/350" />
+  </div>
 </ngx-wrapper-tiny-slider>
 
-<button (click)="prev()">prev</button>
-<button (click)="next()">next</button>
+<button (click)="goTo('prev')">prev</button>
+<button (click)="goTo('next')">next</button>
 ```
 
 ##### app.component.ts
 
 ```ts
-import { NgxWrapperTinySliderInterface } from 'projects/ngx-wrapper-tiny-slider/src/public-api';
-import { TinySliderInstance } from 'tiny-slider';
+import { TinySliderInstance, TinySliderSettings } from 'tiny-slider';
 
 export class AppComponent implements OnInit {
   // GET SLIDER INSTANCE HERE
   @ViewChild('tinySlider', { static: false }) tinySlider: TinySliderInstance;
   // ADD THE SLIDER CONFIG HERE (show tiny slider documentation for more)
-  public tinySliderConfig: NgxWrapperTinySliderInterface = {
+  public tinySliderConfig: TinySliderSettings = {
     gutter: 20,
     items: 1,
     mouseDrag: true
   };
 
   constructor() {}
+
   ngOnInit() {}
 
   // USE THE INSTANCE OF THE SLIDER TO UPDATE SLIDER
-  public prev(): void {
-    this.tinySlider.goTo('prev');
-  }
-  public next(): void {
-    // number | 'next' | 'prev' | 'first' | 'last'
-    this.tinySlider.goTo('next');
+  public goTo(foo: number | 'next' | 'prev' | 'first' | 'last'): void {
+    this.tinySlider.goTo(foo);
   }
 }
 ```
 
 ## Use the wrapper with \*ngFor
 
-First add this in tinySliderConfig
+First add **[initManually]="true"** in the component properties
 
-```ts
-  public tinySliderConfig: NgxWrapperTinySliderInterface = {
-    ...
-    waitForDom: true; <----
-  };
+```html
+<ngx-wrapper-tiny-slider
+  #tinySlider
+  [config]="tinySliderConfig"
+  [initManually]="true"
+></ngx-wrapper-tiny-slider>
 ```
 
-then initialized the slider in your ngAfterViewInit
+when this property is active, **you have to initialize the slider yourself**. So add this method in your ngAfterViewInit (or where do you need) :
 
 ```ts
   ngAfterViewInit(): void {

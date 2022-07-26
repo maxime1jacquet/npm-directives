@@ -1,0 +1,13 @@
+.slider-wrapper {
+  opacity: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: all 20ms ease-out;
+  position: relative;
+
+  &.ready {
+    opacity: 1;
+    max-height: none;
+    overflow: visible;
+  }
+}
