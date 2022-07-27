@@ -59,27 +59,29 @@ export class NgxWrapperTinySliderComponent implements OnInit, OnDestroy {
     }
   }
 
-  public initTns() {
+  private initTns() {
     this.tns$ = from(import('tiny-slider/src/tiny-slider'));
     this.tns$.pipe(takeUntil(this.componentDestroy$)).subscribe();
   }
 
   public initSlider(): void {
-    const extendConfig = Object.assign(
-      { container: this.slideItemsContainerRef.nativeElement },
-      { ...this.defaultConfig, ...this.config }
-    );
+    if (this.wr.nativeWindow && this.tns$) {
+      const extendConfig = Object.assign(
+        { container: this.slideItemsContainerRef.nativeElement },
+        { ...this.defaultConfig, ...this.config }
+      );
 
-    this.tns$
-      .pipe(
-        take(1),
-        map((item: any) => {
-          const tns = item.tns;
-          this.sliderInstance = tns(extendConfig);
-          this.sliderReady$.next(true);
-        })
-      )
-      .subscribe();
+      this.tns$
+        .pipe(
+          take(1),
+          map((item: any) => {
+            const tns = item.tns;
+            this.sliderInstance = tns(extendConfig);
+            this.sliderReady$.next(true);
+          })
+        )
+        .subscribe();
+    }
   }
 
   /**

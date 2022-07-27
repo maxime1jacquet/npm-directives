@@ -17,6 +17,7 @@ import { TinySliderSettings } from 'tiny-slider';
 export class WrapperTinySliderComponent implements OnInit, AfterViewInit {
   @ViewChild('tinySlider', { static: false }) tinySlider: any;
   @ViewChild('tinySlider2', { static: false }) tinySlider2: any;
+  @ViewChild('tinySlider3', { static: false }) tinySlider3: any;
   public tinySliderConfig: TinySliderSettings = {
     gutter: 20,
     items: 5,
@@ -34,6 +35,11 @@ export class WrapperTinySliderComponent implements OnInit, AfterViewInit {
         items: 1
       }
     }
+  };
+  public tinySliderConfig3: TinySliderSettings = {
+    gutter: 20,
+    items: 5,
+    mouseDrag: true
   };
   public imageArr$ = new BehaviorSubject([
     'https://www.nasa.gov/sites/default/files/thumbnails/image/iss067e189024.jpeg',
@@ -59,7 +65,7 @@ export class WrapperTinySliderComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   ngAfterViewInit(): void {
-    // this.tinySlider.initSlider().subscribe();
+    this.tinySlider3.initSlider();
   }
 
   discover() {

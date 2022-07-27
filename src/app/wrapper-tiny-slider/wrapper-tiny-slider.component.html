@@ -15,6 +15,7 @@
   <button (click)="prev()">prev</button>
   <button (click)="next()">next</button>
 </div>
+
 <hr />
 
 <ngx-wrapper-tiny-slider
@@ -29,3 +30,15 @@
 
 <button (click)="pause()">pause</button>
 <button (click)="play()">play</button>
+
+<hr />
+
+<ngx-wrapper-tiny-slider
+  [config]="tinySliderConfig3"
+  [initManually]="true"
+  #tinySlider3
+>
+  <div class="item" *ngFor="let imageUrl of imageArr2">
+    <img [src]="imageUrl" />
+  </div>
+</ngx-wrapper-tiny-slider>
