@@ -1,4 +1,4 @@
-# Angular Wrapper for Tiny Slider (SSR !)
+# Angular Wrapper for Tiny Slider (with SSR !)
 
 A simple angular wrapper for [tiny slider](https://www.npmjs.com/package/tiny-slider). This project is a copy of [this package](https://www.npmjs.com/package/ngx-tiny-slider) because i need this wrapper up to date, and support SSR.
 

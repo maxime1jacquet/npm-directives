@@ -1,8 +1,8 @@
 {
   "name": "ngx-simple-countdown",
-  "version": "13.0.1",
+  "version": "15.0.0",
   "author": "Maxime Jacquet",
-  "description": "The most simple way to display a countdown in angular 12-13",
+  "description": "The most simple way to display a countdown in angular 14-15",
   "repository": {
     "type": "git",
     "url": "https://github.com/maxime1jacquet/ngx-simple-countdown"
@@ -10,11 +10,10 @@
   "homepage": "https://maximejacquet.fr",
   "keywords": [
     "Angular",
+    "Angular 15",
+    "Angular 14",
     "Angular 13",
     "Angular 12",
-    "Angular 11",
-    "Angular 10",
-    "Angular 9",
     "Angular 2+",
     "Directive",
     "Countdown",
@@ -29,8 +28,8 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^13.3.0",
-    "@angular/core": "^13.3.0"
+    "@angular/common": "^15.0.0",
+    "@angular/core": "^15.0.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"

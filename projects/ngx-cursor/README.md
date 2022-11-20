@@ -1,6 +1,6 @@
 # Angular Cursor (ngx-cursor)
 
-A simple way to change cursor in Angular 12-13
+A simple way to change cursor in Angular 14-15
 
 # Getting Started
 

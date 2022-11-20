@@ -1,6 +1,6 @@
 # Angular Simple Countdown (ngx-simple-countdown)
 
-The most simple way to display a countdown in angular 12-13
+The most simple way to display a countdown in angular 14-15
 
 # Getting Started
 

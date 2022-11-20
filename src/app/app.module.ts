@@ -4,30 +4,28 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app.routes';
 
-import { MaterialModule } from './material.module';
-
-//
-// directives in npm
-// import { NgxCursorModule } from 'ngx-cursor';
-
-// directives
-import { NgxSimpleCountdownModule } from './../../projects/ngx-simple-countdown/src/lib/ngx-simple-countdown.module';
+// NgxSimpleCountdownModule
+// import { NgxSimpleCountdownModule } from './../../projects/ngx-simple-countdown/src/lib/ngx-simple-countdown.module';
 // import { NgxSimpleCountdownModule } from 'dist/ngx-simple-countdown';
+import { NgxSimpleCountdownModule } from 'ngx-simple-countdown';
 
+// PARRALAX
 import { NgxParallaxModule } from './../../projects/ngx-parallax/src/lib/ngx-parallax.module';
 // import { NgxParallaxModule } from 'dist/ngx-parallax';
 // import { NgxParallaxModule } from '@yoozly/ngx-parallax';
 
-import { NgxCursorModule } from './../../projects/ngx-cursor/src/lib/ngx-cursor.module';
+// CURSOR
+// import { NgxCursorModule } from './../../projects/ngx-cursor/src/lib/ngx-cursor.module';
 // import { NgxCursorModule } from 'dist/ngx-cursor';
+import { NgxCursorModule } from 'ngx-cursor';
 
-import { NgxWrapperTinySliderModule } from './../../projects/ngx-wrapper-tiny-slider/src/lib/ngx-wrapper-tiny-slider.module';
+// SLIDER
+// import { NgxWrapperTinySliderModule } from './../../projects/ngx-wrapper-tiny-slider/src/lib/ngx-wrapper-tiny-slider.module';
 // import { NgxWrapperTinySliderModule } from 'dist/ngx-wrapper-tiny-slider';
-// import { NgxWrapperTinySliderModule } from 'ngx-wrapper-tiny-slider';
+import { NgxWrapperTinySliderModule } from 'ngx-wrapper-tiny-slider';
 
 // component
 import { AppComponent } from './app.component';
-import { SliderComponent } from './slider/slider.component';
 import { CountdownComponent } from './countdown/countdown.component';
 import { NgxParallaxComponent } from './ngx-parallax/ngx-parallax.component';
 import { NgxCursorComponent } from './ngx-cursor/ngx-cursor.component';
@@ -43,7 +41,6 @@ const customErrorMessage = {
 @NgModule({
   declarations: [
     AppComponent,
-    SliderComponent,
     CountdownComponent,
     NgxParallaxComponent,
     NgxCursorComponent,
@@ -51,7 +48,6 @@ const customErrorMessage = {
     Cursor2Component,
     InputTxtComponent,
     WrapperTinySliderComponent
-    // NgxFieldErrorsComponent,
   ],
   imports: [
     BrowserAnimationsModule,
@@ -62,11 +58,7 @@ const customErrorMessage = {
     NgxSimpleCountdownModule,
     NgxParallaxModule,
     NgxCursorModule,
-    MaterialModule,
     NgxWrapperTinySliderModule
-    // NgxSimpleSliderModule,
-    // NgxFieldErrorsModule.forRoot(customErrorMessage, 'fr')
-    // NgxFieldErrorsModule.forRoot()
   ],
   providers: [],
   exports: [InputTxtComponent],
