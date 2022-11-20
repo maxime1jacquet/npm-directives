@@ -25,9 +25,6 @@ import { NgxWrapperTinySliderModule } from './../../projects/ngx-wrapper-tiny-sl
 // import { NgxWrapperTinySliderModule } from 'dist/ngx-wrapper-tiny-slider';
 // import { NgxWrapperTinySliderModule } from 'ngx-wrapper-tiny-slider';
 
-// in progress
-// import { NgxFieldErrorsModule } from './../../projects/ngx-field-errors/src/lib/ngx-field-errors.module';
-
 // component
 import { AppComponent } from './app.component';
 import { SliderComponent } from './slider/slider.component';
@@ -38,7 +35,6 @@ import { Cursor1Component } from './ngx-cursor/cursor1/cursor1.component';
 import { Cursor2Component } from './ngx-cursor/cursor2/cursor2.component';
 import { InputTxtComponent } from './input-txt/input-txt.component';
 import { WrapperTinySliderComponent } from './wrapper-tiny-slider/wrapper-tiny-slider.component';
-// import { NgxFieldErrorsComponent } from './ngx-field-errors/ngx-field-errors.component';
 
 const customErrorMessage = {
   pattern: 'Erreur custom qui indique que le pattern est incorrecte'

@@ -38,14 +38,6 @@
       "ngx-cursor/*": [
         "dist/ngx-cursor/*"
       ],
-      "field-errors": [
-        "dist/field-errors/field-errors",
-        "dist/field-errors"
-      ],
-      "ngx-field-errors": [
-        "dist/ngx-field-errors/ngx-field-errors",
-        "dist/ngx-field-errors"
-      ],
       "ngx-wrapper-tiny-slider": [
         "dist/ngx-wrapper-tiny-slider/ngx-wrapper-tiny-slider",
         "dist/ngx-wrapper-tiny-slider"
