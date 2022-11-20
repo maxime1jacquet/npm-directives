@@ -8,7 +8,6 @@ import { MaterialModule } from './material.module';
 
 //
 // directives in npm
-// import { NgxSimpleSliderModule } from 'ngx-simple-slider';
 // import { NgxCursorModule } from 'ngx-cursor';
 
 // directives
@@ -28,7 +27,6 @@ import { NgxWrapperTinySliderModule } from 'ngx-wrapper-tiny-slider';
 
 // in progress
 // import { NgxFieldErrorsModule } from './../../projects/ngx-field-errors/src/lib/ngx-field-errors.module';
-// import { NgxSimpleSliderModule } from './../../projects/ngx-simple-slider/src/lib/ngx-simple-slider.module';
 
 // component
 import { AppComponent } from './app.component';
