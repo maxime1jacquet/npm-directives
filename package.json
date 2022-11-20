@@ -19,6 +19,7 @@
     "@angular/platform-browser": "^15.0.0",
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
+    "@yoozly/ngx-parallax": "^15.0.0",
     "core-js": "^2.5.4",
     "ng-packagr": "^15.0.0",
     "ngx-cursor": "^15.0.0",
