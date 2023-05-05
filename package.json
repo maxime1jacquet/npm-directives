@@ -19,15 +19,14 @@
     "@angular/platform-browser": "^16.0.0",
     "@angular/platform-browser-dynamic": "^16.0.0",
     "@angular/router": "^16.0.0",
-    "@yoozly/ngx-parallax": "^15.0.0",
+    "@yoozly/ngx-parallax": "^16.0.0",
     "core-js": "^2.5.4",
-    "ng-packagr": "^16.0.0",
-    "ngx-cursor": "^15.0.0",
-    "ngx-simple-countdown": "^15.0.0",
-    "ngx-wrapper-tiny-slider": "^15.0.0",
+    "ngx-cursor": "^16.0.0",
+    "ngx-simple-countdown": "^16.0.0",
+    "ngx-wrapper-tiny-slider": "^16.0.1",
     "rxjs": "~7.5.0",
+    "tiny-slider": "^2.9.4",
     "tslib": "^2.3.0",
-    "typescript": "^5.0.4",
     "zone.js": "~0.13.0"
   },
   "devDependencies": {
@@ -47,8 +46,10 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "~1.7.0",
+    "ng-packagr": "^16.0.0",
     "protractor": "~7.0.0",
     "ts-node": "~7.0.0",
-    "tslint": "~6.1.0"
+    "tslint": "~6.1.0",
+    "typescript": "^5.0.2"
   }
 }

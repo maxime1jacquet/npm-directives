@@ -1,7 +1,6 @@
 import {
   AfterViewInit,
   ChangeDetectorRef,
-  ViewEncapsulation,
   Component,
   OnInit,
   ViewChild
@@ -41,6 +40,7 @@ export class WrapperTinySliderComponent implements OnInit, AfterViewInit {
     items: 5,
     mouseDrag: true
   };
+
   public imageArr$ = new BehaviorSubject([
     'https://www.nasa.gov/sites/default/files/thumbnails/image/iss067e189024.jpeg',
     'https://www.nasa.gov/sites/default/files/thumbnails/image/certain_altax_pitch_093021.jpeg',
@@ -69,7 +69,7 @@ export class WrapperTinySliderComponent implements OnInit, AfterViewInit {
   }
 
   discover() {
-    // this.tinySlider.initSlider().subscribe();
+    this.tinySlider.initSlider().subscribe();
   }
 
   prev() {

@@ -1,8 +1,8 @@
 {
   "name": "ngx-wrapper-tiny-slider",
-  "version": "15.0.0",
+  "version": "16.0.1",
   "author": "Maxime Jacquet",
-  "description": "A simple Angular 13 wrapper for Tiny Slider",
+  "description": "A simple Angular 15-16 wrapper for Tiny Slider",
   "repository": {
     "type": "git",
     "url": "https://github.com/maxime1jacquet/npm-directives"
@@ -10,10 +10,9 @@
   "homepage": "https://maximejacquet.fr",
   "keywords": [
     "Angular",
+    "Angular 16",
     "Angular 15",
     "Angular 14",
-    "Angular 13",
-    "Angular 12",
     "slider",
     "simple slider",
     "tiny slider",
@@ -27,19 +26,15 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^15.0.0",
-    "@angular/core": "^15.0.0",
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0",
     "tiny-slider": "^2.9.4"
   },
   "dependencies": {
     "tiny-slider": "^2.9.4",
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   },
-  "module": "fesm2015/ngx-wrapper-tiny-slider.mjs",
-  "es2020": "fesm2020/ngx-wrapper-tiny-slider.mjs",
-  "esm2020": "esm2020/ngx-wrapper-tiny-slider.mjs",
-  "fesm2020": "fesm2020/ngx-wrapper-tiny-slider.mjs",
-  "fesm2015": "fesm2015/ngx-wrapper-tiny-slider.mjs",
+  "module": "fesm2022/ngx-wrapper-tiny-slider.mjs",
   "typings": "index.d.ts",
   "exports": {
     "./package.json": {
@@ -47,11 +42,9 @@
     },
     ".": {
       "types": "./index.d.ts",
-      "esm2020": "./esm2020/ngx-wrapper-tiny-slider.mjs",
-      "es2020": "./fesm2020/ngx-wrapper-tiny-slider.mjs",
-      "es2015": "./fesm2015/ngx-wrapper-tiny-slider.mjs",
-      "node": "./fesm2015/ngx-wrapper-tiny-slider.mjs",
-      "default": "./fesm2020/ngx-wrapper-tiny-slider.mjs"
+      "esm2022": "./esm2022/ngx-wrapper-tiny-slider.mjs",
+      "esm": "./esm2022/ngx-wrapper-tiny-slider.mjs",
+      "default": "./fesm2022/ngx-wrapper-tiny-slider.mjs"
     }
   },
   "sideEffects": false

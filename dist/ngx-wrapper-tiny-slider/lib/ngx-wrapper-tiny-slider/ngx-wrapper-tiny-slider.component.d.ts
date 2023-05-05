@@ -31,5 +31,5 @@ export declare class NgxWrapperTinySliderComponent implements OnInit, OnDestroy 
      */
     ngOnDestroy(): void;
     static ɵfac: i0.ɵɵFactoryDeclaration<NgxWrapperTinySliderComponent, never>;
-    static ɵcmp: i0.ɵɵComponentDeclaration<NgxWrapperTinySliderComponent, "ngx-wrapper-tiny-slider", never, { "config": "config"; "initManually": "initManually"; "id": "id"; }, {}, never, ["*"], false, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NgxWrapperTinySliderComponent, "ngx-wrapper-tiny-slider", never, { "config": { "alias": "config"; "required": false; }; "initManually": { "alias": "initManually"; "required": false; }; "id": { "alias": "id"; "required": false; }; }, {}, never, ["*"], false, never>;
 }

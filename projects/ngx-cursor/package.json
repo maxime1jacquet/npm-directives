@@ -1,8 +1,8 @@
 {
   "name": "ngx-cursor",
-  "version": "15.0.0",
+  "version": "16.0.0",
   "author": "Maxime Jacquet",
-  "description": "A simple way to change cursor in Angular 14-15",
+  "description": "A simple way to change cursor in Angular 15-16",
   "repository": {
     "type": "git",
     "url": "https://github.com/maxime1jacquet/npm-directives/tree/master/projects/ngx-cursor"
@@ -10,10 +10,10 @@
   "homepage": "https://ngx-simple.maximejacquet.fr/cursor",
   "keywords": [
     "Angular",
+    "Angular 16",
     "Angular 15",
     "Angular 14",
     "Angular 13",
-    "Angular 12",
     "Angular 2+",
     "cursor",
     "custom cursor",
@@ -30,10 +30,10 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^15.0.0",
-    "@angular/core": "^15.0.0"
+    "@angular/common": "^16.0.0",
+    "@angular/core": "^16.0.0"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.3.0"
   }
 }

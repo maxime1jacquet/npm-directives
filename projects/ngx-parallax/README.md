@@ -1,6 +1,6 @@
 # Angular Parallax (SSR)
 
-Simple way to use parallax with Angular 14-15 (with SSR)
+Simple way to use parallax with Angular 15-16 (with SSR)
 
 ## 1- Install ngx-parallax package
 
