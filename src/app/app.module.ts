@@ -10,9 +10,9 @@ import { AppRoutingModule } from './app.routes';
 import { NgxSimpleCountdownModule } from 'ngx-simple-countdown';
 
 // PARRALAX
-import { NgxParallaxModule } from './../../projects/ngx-parallax/src/lib/ngx-parallax.module';
+// import { NgxParallaxModule } from './../../projects/ngx-parallax/src/lib/ngx-parallax.module';
 // import { NgxParallaxModule } from 'dist/ngx-parallax';
-// import { NgxParallaxModule } from '@yoozly/ngx-parallax';
+import { NgxParallaxModule } from '@yoozly/ngx-parallax';
 
 // CURSOR
 // import { NgxCursorModule } from './../../projects/ngx-cursor/src/lib/ngx-cursor.module';
