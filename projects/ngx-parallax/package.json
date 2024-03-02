@@ -1,21 +1,21 @@
 {
   "name": "@yoozly/ngx-parallax",
-  "version": "16.0.0",
+  "version": "17.0.0",
   "author": "Yoozly",
-  "description": "Use parallax effect with Angular 16-17 (with universal)",
+  "description": "Use parallax effect with Angular 16-17 compatible universal (standalone and ngModule)",
   "keywords": [
     "Angular",
+    "Angular 17",
     "Angular 16",
     "Angular 15",
-    "Angular 14",
-    "Angular 13",
     "Parallax",
     "Parrallax",
     "Parralax",
     "animation",
     "simple parallax",
+    "parallax standalone",
     "angular parallax",
-    "angular-parallax",
+    "angular parallax standalone",
     "ngx-parallax",
     "scroll effect",
     "ng-parallax",
@@ -23,8 +23,8 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^16.0.0",
-    "@angular/core": "^16.0.0"
+    "@angular/common": "^17.0.0",
+    "@angular/core": "^17.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

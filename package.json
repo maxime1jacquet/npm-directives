@@ -19,7 +19,7 @@
     "@angular/platform-browser": "^17.2.3",
     "@angular/platform-browser-dynamic": "^17.2.3",
     "@angular/router": "^17.2.3",
-    "@yoozly/ngx-parallax": "^16.0.0",
+    "@yoozly/ngx-parallax": "^17.0.0",
     "core-js": "^2.5.4",
     "ngx-cursor": "^16.0.0",
     "ngx-simple-countdown": "^17.0.0",

@@ -1,15 +1,37 @@
 # Angular Parallax (SSR)
 
-Simple way to use parallax with Angular 15-16 (with SSR)
+Simple way to Use parallax effect with Angular 16-17 compatible universal (SRR) (standalone and ngModule)
 
-## 1- Install ngx-parallax package
+## 1- Install @yoozly/ngx-parallax package
 
 ```
 npm i @yoozly/ngx-parallax
 yarn i @yoozly/ngx-parallax
 ```
 
-## 2- Import NgxParallaxModule in your angular module
+## 2- Import in your project
+
+With Angular 17, you have 2 ways to import the directive (standalone or ngModule)
+
+### 2.a- With standalone component
+
+```ts
+import { ParallaxStandaloneDirective } from '@yoozly/ngx-parallax';
+
+@Component({
+  selector: 'my-standalone-component',
+  standalone: true,
+  imports: [
+    ...
+    ParallaxStandaloneDirective
+  ]
+})
+export class MyStandaloneComponent implements OnInit {
+...
+}
+```
+
+### 2.b- With ngModule
 
 ```ts
 import { NgxParallaxModule } from '@yoozly/ngx-parallax';
@@ -23,7 +45,7 @@ import { NgxParallaxModule } from '@yoozly/ngx-parallax';
 export class AppModule {}
 ```
 
-## 3- Add the directive "ngx-parallax" in the HTML template
+## 3- Add the directive "ngx-parallax" in the angular component HTML template
 
 ```html
 <div class="image">
