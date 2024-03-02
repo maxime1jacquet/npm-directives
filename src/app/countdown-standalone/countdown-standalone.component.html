@@ -1,0 +1,82 @@
+<section class="countdown">
+  <h1 class="title">Simple Countdown</h1>
+  <div class="countdown__exemple">
+    <div simpleCountdown [dateTo]="1795242400" (finish)="onfinish()"></div>
+    <div class="source-code">
+      {{ code0 }}
+    </div>
+  </div>
+
+  <h1 class="title">Countdown with custom styles and different language</h1>
+  <div class="countdown__exemple">
+    <div
+      simpleCountdown
+      [dateTo]="1791242400"
+      [language]="'fr'"
+      [styles]="
+        '
+        font-size: 26px;
+        text-align:center;
+        color: #FFF;
+        background-color: #3F51B5;
+        padding: 18px 13px;
+        font-weight: bold;
+        min-width:40px;
+        margin:0 1px;
+      '
+      "
+    ></div>
+    <div class="source-code">
+      {{ code1 }}
+    </div>
+  </div>
+
+  <h1 class="title">Countdown not reactive</h1>
+  <div class="countdown__exemple">
+    <div
+      simpleCountdown
+      [dateTo]="1791242400"
+      [reactive]="false"
+      [styles]="
+        '
+        font-size: 26px;
+        text-align:center;
+        color: #FFF;
+        background-color: #3F51B5;
+        padding: 18px 13px;
+        font-weight: bold;
+        min-width:40px;
+        margin:0 1px;
+      '
+      "
+    ></div>
+    <div class="source-code">
+      {{ code3 }}
+    </div>
+  </div>
+
+  <h1 class="title">Countdown Finish exemple</h1>
+  <div class="countdown__exemple">
+    <div
+      simpleCountdown
+      (finish)="onfinish()"
+      [dateTo]="1791242400"
+      [endMessage]="'my custom end message'"
+      [styles]="
+        '
+        font-size: 26px;
+        text-align:center;
+        color: #FFF;
+        background-color: #3F51B5;
+        padding: 18px 13px;
+        font-weight: bold;
+        min-width:40px;
+        margin:0 1px;
+      '
+      "
+    ></div>
+    <div class="source-code">
+      {{ code2 }}
+    </div>
+  </div>
+</section>

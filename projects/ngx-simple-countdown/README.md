@@ -1,25 +1,45 @@
-# Angular Simple Countdown (ngx-simple-countdown)
+# Angular Simple Countdown (Standalone or ngModule)
 
-The most simple way to display a countdown in angular 15-16
+The most simple way to display a countdown in angular 16-17. This package is compatible with standalone component or ngModule.
 
 # Getting Started
 
-## Links
+#### Links
 
 - [demo](https://ngx-simple.maximejacquet.fr/countdown)
 - [github repository](https://github.com/maxime1jacquet/ngx-simple-countdown)
-- [my twitter](https://twitter.com/maxime1jacquet)
+- [twitter/x](https://twitter.com/maxime1jacquet)
 
-## Install
+## 1- Install
 
 ```
 npm i ngx-simple-countdown
 yarn i ngx-simple-countdown
 ```
 
-## Import in your angular module (or feature module)
+## 2- Import in your project
 
-##### app.module.ts
+With Angular 17, you have 2 ways to import the directive (standalone or ngModule)
+
+### 2.a- With standalone component
+
+```ts
+import { NgxSimpleCountdownStandaloneDirective } from 'ngx-simple-countdown';
+
+@Component({
+  selector: 'my-standalone-component',
+  standalone: true,
+  imports: [
+    ...
+    NgxSimpleCountdownStandaloneDirective
+  ]
+})
+export class MyStandaloneComponent implements OnInit {
+...
+}
+```
+
+### 2.b- With ngModule
 
 ```ts
 import { NgxSimpleCountdownModule } from 'ngx-simple-countdown';
@@ -30,9 +50,7 @@ import { NgxSimpleCountdownModule } from 'ngx-simple-countdown';
 export class AppModule {}
 ```
 
-## Add "simpleCountdown" in a new div in your component
-
-##### app.component.html
+## 3- Use directive "simpleCountdown" in a new div in your angular component
 
 ```html
 <div class="countdown" simpleCountdown [dateTo]="1581242400"></div>
@@ -43,7 +61,7 @@ export class AppModule {}
 -->
 ```
 
-## And you can add some parameters
+## 4- You can add some parameters
 
 ```html
 <div
@@ -92,5 +110,3 @@ you can add somes styles in your element
 ```
 
 # And that's it, Enjoy !
-
-Questions ? **[contact me](https://twitter.com/maxime1jacquet)**

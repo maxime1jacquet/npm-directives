@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 import { CountdownComponent } from './countdown/countdown.component';
+import { CountdownStandaloneComponent } from './countdown-standalone/countdown-standalone.component';
 import { NgxParallaxComponent } from './ngx-parallax/ngx-parallax.component';
 import { NgxCursorComponent } from './ngx-cursor/ngx-cursor.component';
 import { Cursor1Component } from './ngx-cursor/cursor1/cursor1.component';
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'countdown',
     component: CountdownComponent
+  },
+  {
+    path: 'countdown-standalone',
+    component: CountdownStandaloneComponent
   },
   {
     path: 'parallax',

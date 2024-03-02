@@ -1,6 +1,6 @@
 {
   "name": "ngx-simple-countdown",
-  "version": "16.0.0",
+  "version": "17.0.0",
   "author": "Maxime Jacquet",
   "description": "The most simple way to display a countdown in angular 15-16",
   "repository": {

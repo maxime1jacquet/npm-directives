@@ -1,0 +1,21 @@
+.countdown {
+  &__exemple {
+    padding-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+    }
+
+    > div {
+      margin: 10px;
+      flex: 1;
+    }
+  }
+}
+.tt {
+  margin-right: 20px;
+  color: royalblue;
+  font-weight: bold;
+}
