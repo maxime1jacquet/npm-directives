@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { NgxSimpleCountdownStandaloneDirective } from 'projects/ngx-simple-countdown/src/public_api';
+// import { NgxSimpleCountdownStandaloneDirective } from 'projects/ngx-simple-countdown/src/public_api';
+import { NgxSimpleCountdownStandaloneDirective } from 'ngx-simple-countdown';
 
 @Component({
   selector: 'ngx-simple-count-countdown-standalone',

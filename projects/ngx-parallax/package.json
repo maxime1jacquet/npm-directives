@@ -2,7 +2,7 @@
   "name": "@yoozly/ngx-parallax",
   "version": "16.0.0",
   "author": "Yoozly",
-  "description": "Use parallax effect with Angular 15-16 (with universal)",
+  "description": "Use parallax effect with Angular 16-17 (with universal)",
   "keywords": [
     "Angular",
     "Angular 16",

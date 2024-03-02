@@ -22,7 +22,7 @@
     "@yoozly/ngx-parallax": "^16.0.0",
     "core-js": "^2.5.4",
     "ngx-cursor": "^16.0.0",
-    "ngx-simple-countdown": "^16.0.0",
+    "ngx-simple-countdown": "^17.0.0",
     "ngx-wrapper-tiny-slider": "^16.0.1",
     "rxjs": "~7.5.0",
     "tiny-slider": "^2.9.4",
