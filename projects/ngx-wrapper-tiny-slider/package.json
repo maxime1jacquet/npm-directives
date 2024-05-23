@@ -1,6 +1,6 @@
 {
   "name": "ngx-wrapper-tiny-slider",
-  "version": "16.0.1",
+  "version": "17.0.1",
   "author": "Maxime Jacquet",
   "description": "A simple Angular 15-16 wrapper for Tiny Slider",
   "repository": {
@@ -11,6 +11,7 @@
   "keywords": [
     "Angular",
     "Angular 16",
+    "Angular 17",
     "Angular 15",
     "Angular 14",
     "slider",
@@ -26,8 +27,8 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^16.0.0",
-    "@angular/core": "^16.0.0",
+    "@angular/common": "^17.3.10",
+    "@angular/core": "^17.3.10",
     "tiny-slider": "^2.9.4"
   },
   "dependencies": {
