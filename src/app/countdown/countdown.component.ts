@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'ngx-simple-count-countdown',
-    templateUrl: './countdown.component.html',
-    styleUrls: ['./countdown.component.scss'],
-    standalone: false
+  selector: 'ngx-simple-count-countdown',
+  templateUrl: './countdown.component.html',
+  styleUrls: ['./countdown.component.scss'],
+  standalone: false
 })
 export class CountdownComponent implements OnInit {
   constructor() {}
 
-  public code0 = `<div simpleCountdown [dateTo]="1757651420"></div>`;
+  public code0 = `<div simpleCountdown [dateTo]="1747451420"></div>`;
 
   public code1 = `
     <div
       simpleCountdown
-      [dateTo]="1757651420"
+      [dateTo]="1747451420"
       [language]="'fr'"
       [styles]="
         '
@@ -33,7 +33,7 @@ export class CountdownComponent implements OnInit {
     <div
       simpleCountdown
       (finish)="onfinish()"
-      [dateTo]="1757651420"
+      [dateTo]="1747451420"
       [endMessage]="'my custom end message'"
       [styles]="
         '
@@ -51,7 +51,7 @@ export class CountdownComponent implements OnInit {
   public code3 = `
   <div
     simpleCountdown
-    [dateTo]="1757651420"
+    [dateTo]="1747451420"
     [reactive]="false"
     [styles]="
       '
