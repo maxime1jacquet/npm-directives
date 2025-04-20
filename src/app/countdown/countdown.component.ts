@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ngx-simple-count-countdown',
-  templateUrl: './countdown.component.html',
-  styleUrls: ['./countdown.component.scss']
+    selector: 'ngx-simple-count-countdown',
+    templateUrl: './countdown.component.html',
+    styleUrls: ['./countdown.component.scss'],
+    standalone: false
 })
 export class CountdownComponent implements OnInit {
   constructor() {}

@@ -13,7 +13,8 @@ import { tap, takeUntil, filter } from 'rxjs/operators';
 import { CountdownResult, CountdownKeywords } from './models';
 import { getDateNow, getCountdownResult, getLanguage } from './utils';
 @Directive({
-  selector: '[simpleCountdown]'
+    selector: '[simpleCountdown]',
+    standalone: false
 })
 export class NgxSimpleCountdownDirective implements OnInit, OnDestroy {
   @Input() dateTo: number;

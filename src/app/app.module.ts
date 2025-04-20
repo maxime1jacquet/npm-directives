@@ -5,24 +5,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app.routes';
 
 // NgxSimpleCountdownModule
-import { NgxSimpleCountdownModule } from './../../projects/ngx-simple-countdown/src/lib/ngx-simple-countdown.module';
+// import { NgxSimpleCountdownModule } from './../../projects/ngx-simple-countdown/src/lib/ngx-simple-countdown.module';
 // import { NgxSimpleCountdownModule } from 'dist/ngx-simple-countdown';
-// import { NgxSimpleCountdownModule } from 'ngx-simple-countdown';
+import { NgxSimpleCountdownModule } from 'ngx-simple-countdown';
 
 // PARRALAX
-import { NgxParallaxModule } from './../../projects/ngx-parallax/src/lib/ngx-parallax.module';
+// import { NgxParallaxModule } from './../../projects/ngx-parallax/src/lib/ngx-parallax.module';
 // import { NgxParallaxModule } from 'dist/ngx-parallax';
-// import { NgxParallaxModule } from '@yoozly/ngx-parallax';
+import { NgxParallaxModule } from '@yoozly/ngx-parallax';
 
 // CURSOR
-import { NgxCursorModule } from './../../projects/ngx-cursor/src/lib/ngx-cursor.module';
+// import { NgxCursorModule } from './../../projects/ngx-cursor/src/lib/ngx-cursor.module';
 // import { NgxCursorModule } from 'dist/ngx-cursor';
-// import { NgxCursorModule } from 'ngx-cursor';
+import { NgxCursorModule } from 'ngx-cursor';
 
 // SLIDER
-import { NgxWrapperTinySliderModule } from './../../projects/ngx-wrapper-tiny-slider/src/lib/ngx-wrapper-tiny-slider.module';
+// import { NgxWrapperTinySliderModule } from './../../projects/ngx-wrapper-tiny-slider/src/lib/ngx-wrapper-tiny-slider.module';
 // import { NgxWrapperTinySliderModule } from 'dist/ngx-wrapper-tiny-slider';
-// import { NgxWrapperTinySliderModule } from 'ngx-wrapper-tiny-slider';
+import { NgxWrapperTinySliderModule } from 'ngx-wrapper-tiny-slider';
 
 // component
 import { AppComponent } from './app.component';

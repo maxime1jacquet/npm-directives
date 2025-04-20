@@ -1,8 +1,8 @@
 {
   "name": "ngx-wrapper-tiny-slider",
-  "version": "16.0.1",
+  "version": "19.0.0",
   "author": "Maxime Jacquet",
-  "description": "A simple Angular 15-16 wrapper for Tiny Slider",
+  "description": "A simple Angular 19 wrapper for Tiny Slider",
   "repository": {
     "type": "git",
     "url": "https://github.com/maxime1jacquet/npm-directives"
@@ -10,9 +10,9 @@
   "homepage": "https://maximejacquet.fr",
   "keywords": [
     "Angular",
-    "Angular 16",
-    "Angular 15",
-    "Angular 14",
+    "Angular 19",
+    "Angular 18",
+    "Angular 17",
     "slider",
     "simple slider",
     "tiny slider",
@@ -26,8 +26,8 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^16.0.0",
-    "@angular/core": "^16.0.0",
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0",
     "tiny-slider": "^2.9.4"
   },
   "dependencies": {

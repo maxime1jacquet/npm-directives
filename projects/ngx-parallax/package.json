@@ -1,13 +1,13 @@
 {
   "name": "@yoozly/ngx-parallax",
-  "version": "17.0.0",
+  "version": "19.0.0",
   "author": "Yoozly",
-  "description": "Use parallax effect with Angular 16-17 compatible universal (standalone and ngModule)",
+  "description": "Use parallax effect with Angular 19 compatible universal (standalone and ngModule)",
   "keywords": [
     "Angular",
+    "Angular 19",
+    "Angular 18",
     "Angular 17",
-    "Angular 16",
-    "Angular 15",
     "Parallax",
     "Parrallax",
     "Parralax",
@@ -23,8 +23,8 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^17.0.0",
-    "@angular/core": "^17.0.0"
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

@@ -1,6 +1,6 @@
 # Angular Simple Countdown (Standalone or ngModule)
 
-The most simple way to display a countdown in angular 16-17. This package is compatible with standalone component or ngModule.
+The most simple way to display a countdown in angular 19. This package is compatible with standalone component or ngModule.
 
 # Getting Started
 
@@ -19,7 +19,7 @@ yarn i ngx-simple-countdown
 
 ## 2- Import in your project
 
-With Angular 17, you have 2 ways to import the directive (standalone or ngModule)
+Since Angular 17, you have 2 ways to import the directive (standalone or ngModule)
 
 ### 2.a- With standalone component
 

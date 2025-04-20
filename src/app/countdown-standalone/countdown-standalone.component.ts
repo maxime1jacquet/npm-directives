@@ -4,11 +4,10 @@ import { Component, OnInit } from '@angular/core';
 import { NgxSimpleCountdownStandaloneDirective } from 'ngx-simple-countdown';
 
 @Component({
-  selector: 'ngx-simple-count-countdown-standalone',
-  templateUrl: './countdown-standalone.component.html',
-  styleUrls: ['./countdown-standalone.component.scss'],
-  standalone: true,
-  imports: [NgxSimpleCountdownStandaloneDirective]
+    selector: 'ngx-simple-count-countdown-standalone',
+    templateUrl: './countdown-standalone.component.html',
+    styleUrls: ['./countdown-standalone.component.scss'],
+    imports: [NgxSimpleCountdownStandaloneDirective]
 })
 export class CountdownStandaloneComponent implements OnInit {
   constructor() {}

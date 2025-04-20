@@ -6,7 +6,8 @@ import { CountdownResult, CountdownKeywords } from './models';
 import { getCountdownResult, getDateNow, getLanguage } from './utils';
 
 @Directive({
-  selector: '[simpleTimeago]'
+    selector: '[simpleTimeago]',
+    standalone: false
 })
 export class NgxSimpleTimeagoDirective implements OnInit, OnDestroy {
   @Input() date: number;

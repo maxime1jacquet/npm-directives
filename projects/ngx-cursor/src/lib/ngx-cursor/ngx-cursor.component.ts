@@ -21,13 +21,14 @@ import { BrowserWindowRef } from '../services/windowref.service';
 import * as polyfills from '../polyfills/path';
 
 @Component({
-  selector: 'ngx-cursor',
-  template: `
+    selector: 'ngx-cursor',
+    template: `
     <div id="ngx-cursor" #ngxCursor>
       <span #ngxCursorEl></span>
     </div>
   `,
-  styleUrls: ['./ngx-cursor.component.scss']
+    styleUrls: ['./ngx-cursor.component.scss'],
+    standalone: false
 })
 export class NgxCursorComponent implements AfterViewInit, OnChanges, OnDestroy {
   @Input() border = 'none';

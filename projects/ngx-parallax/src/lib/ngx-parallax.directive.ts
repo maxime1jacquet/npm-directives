@@ -12,7 +12,8 @@ import { takeUntil, filter, map, debounceTime, mergeMap } from 'rxjs/operators';
 import { BrowserWindowRef } from './services/windowref.service';
 
 @Directive({
-  selector: '[ngx-parallax]'
+    selector: '[ngx-parallax]',
+    standalone: false
 })
 export class ParallaxDirective implements OnDestroy, AfterViewInit {
   @Input() speed = 30;

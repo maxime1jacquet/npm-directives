@@ -9,9 +9,10 @@ import { BehaviorSubject } from 'rxjs';
 import { TinySliderSettings } from 'tiny-slider';
 
 @Component({
-  selector: 'wrapper-tiny-slider',
-  templateUrl: './wrapper-tiny-slider.component.html',
-  styleUrls: ['./wrapper-tiny-slider.component.scss']
+    selector: 'wrapper-tiny-slider',
+    templateUrl: './wrapper-tiny-slider.component.html',
+    styleUrls: ['./wrapper-tiny-slider.component.scss'],
+    standalone: false
 })
 export class WrapperTinySliderComponent implements OnInit, AfterViewInit {
   @ViewChild('tinySlider', { static: false }) tinySlider: any;

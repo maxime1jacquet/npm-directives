@@ -1,8 +1,8 @@
 {
   "name": "ngx-simple-countdown",
-  "version": "17.0.0",
+  "version": "19.0.0",
   "author": "Maxime Jacquet",
-  "description": "The most simple way to display a countdown in angular 16-17 (standalone and ngModule)",
+  "description": "The most simple way to display a countdown in angular 19 (standalone and ngModule)",
   "repository": {
     "type": "git",
     "url": "https://github.com/maxime1jacquet/ngx-simple-countdown"
@@ -10,9 +10,9 @@
   "homepage": "https://maximejacquet.fr",
   "keywords": [
     "Angular",
+    "Angular 19",
+    "Angular 18",
     "Angular 17",
-    "Angular 16",
-    "Angular 15",
     "Angular 2+",
     "Directive",
     "Countdown",
@@ -28,8 +28,8 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^17.0.0",
-    "@angular/core": "^17.0.0"
+    "@angular/common": "^19.0.0",
+    "@angular/core": "^19.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

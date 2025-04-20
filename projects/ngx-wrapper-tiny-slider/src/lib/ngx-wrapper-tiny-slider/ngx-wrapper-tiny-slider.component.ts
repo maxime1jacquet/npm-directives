@@ -21,10 +21,11 @@ import {
 import { BrowserWindowRef } from '../services/windowref.service';
 
 @Component({
-  selector: 'ngx-wrapper-tiny-slider',
-  templateUrl: 'ngx-wrapper-tiny-slider.component.html',
-  styleUrls: ['./tiny-slider.scss', './ngx-wrapper-tiny-slider.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'ngx-wrapper-tiny-slider',
+    templateUrl: 'ngx-wrapper-tiny-slider.component.html',
+    styleUrls: ['./tiny-slider.scss', './ngx-wrapper-tiny-slider.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class NgxWrapperTinySliderComponent implements OnInit, OnDestroy {
   @ViewChild('slideItems', { static: true }) slideItemsContainerRef: ElementRef;

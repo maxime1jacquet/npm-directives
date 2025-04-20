@@ -5,11 +5,10 @@ import { Component, OnInit } from '@angular/core';
 import { ParallaxStandaloneDirective } from '@yoozly/ngx-parallax';
 
 @Component({
-  selector: 'ngx-parallax-standalone',
-  templateUrl: './ngx-parallax-standalone.component.html',
-  styleUrls: ['./ngx-parallax-standalone.component.scss'],
-  standalone: true,
-  imports: [ParallaxStandaloneDirective, NgIf]
+    selector: 'ngx-parallax-standalone',
+    templateUrl: './ngx-parallax-standalone.component.html',
+    styleUrls: ['./ngx-parallax-standalone.component.scss'],
+    imports: [ParallaxStandaloneDirective, NgIf]
 })
 export class NgxParallaxStandaloneComponent implements OnInit {
   active = true;
