@@ -1,6 +1,6 @@
 # Angular Parallax (SSR)
 
-Simple way to Use parallax effect with Angular 19 compatible universal (SRR) (standalone and ngModule)
+Simple way to Use parallax effect with Angular 20 compatible universal (SRR) (standalone and ngModule)
 
 ## 1- Install @yoozly/ngx-parallax package
 

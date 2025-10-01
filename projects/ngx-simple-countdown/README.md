@@ -1,6 +1,6 @@
 # Angular Simple Countdown (Standalone or ngModule)
 
-The most simple way to display a countdown in angular 19. This package is compatible with standalone component or ngModule.
+The most simple way to display a countdown in angular 20. This package is compatible with standalone component or ngModule.
 
 # Getting Started
 
