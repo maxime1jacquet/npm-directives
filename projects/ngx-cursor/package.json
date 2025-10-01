@@ -1,8 +1,8 @@
 {
   "name": "ngx-cursor",
-  "version": "19.0.0",
+  "version": "20.0.0",
   "author": "Maxime Jacquet",
-  "description": "A simple way to change cursor in Angular 19",
+  "description": "A simple way to change cursor in Angular 20",
   "repository": {
     "type": "git",
     "url": "https://github.com/maxime1jacquet/npm-directives/tree/master/projects/ngx-cursor"
@@ -10,6 +10,7 @@
   "homepage": "https://ngx-simple.maximejacquet.fr/cursor",
   "keywords": [
     "Angular",
+    "Angular 20",
     "Angular 19",
     "Angular 18",
     "Angular 16",
@@ -29,8 +30,8 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^19.0.0",
-    "@angular/core": "^19.0.0"
+    "@angular/common": "20.1.0",
+    "@angular/core": "20.1.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
