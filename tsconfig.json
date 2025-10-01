@@ -8,7 +8,7 @@
     "sourceMap": true,
     "declaration": false,
     "module": "ES2022",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "experimentalDecorators": true,
     "skipLibCheck": true,
     "target": "ES2022",
